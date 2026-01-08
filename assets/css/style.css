@@ -38,9 +38,7 @@
 	padding: 12px 80px;
 	text-decoration: none;
 }
-.startButton:hover {
-	background-color:#e6197c;
-}
+
 .startButton:active {
 	position:relative;
 	top:1px;
