@@ -70,6 +70,16 @@
     border-radius: 10px;
 }
 
+.selected{
+    border: 2px solid #ff007b;
+    border-radius: 14px;
+}
+
+.avatar1, .avatar2, .avatar3, .avatar4, .avatar5{
+    width: 80px;
+    border-radius: 10px;
+}
+
 .bottom-button{
     display: flex;
     justify-content: center;
