@@ -27,3 +27,42 @@
 	top:1px;
 }
 
+.div-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.content-avatar {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+}
+
+.box-color{
+    background-color: #FFF2F7;
+}
+
+.box-content{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.personnages{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+
+.avatar{
+    width: 80px;
+    border-radius: 10px;
+}
+
