@@ -18,21 +18,30 @@
 	height: 100vh;
 }
 
-.startButton  {
-	background-color:#ff007b;
-	border-radius:42px;
-	border:1px solid #ffffff;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-size:28px;
-	padding:15px 31px;
-	text-decoration:none;
+.logo-titre {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 40px;
 }
-.startButton :hover {
+
+.startButton  {
+	background-color: #ff007b;
+	border-radius: 42px;
+	border: 1px solid #ffffff;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 26px;
+	font-weight: bold;
+	padding: 12px 80px;
+	text-decoration: none;
+}
+.startButton:hover {
 	background-color:#e6197c;
 }
-.startButton :active {
+.startButton:active {
 	position:relative;
 	top:1px;
 }
