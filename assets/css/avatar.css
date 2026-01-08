@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Londrina+Solid:wght@100;300;400;900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Afacad", sans-serif;
+  	font-optical-sizing: auto;
+  	font-weight: 500;
+  	font-style: normal;
+}
+
+.startButton  {
+	background-color: #ff007b;
+	border-radius: 42px;
+	border: 1px solid #ffffff;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 26px;
+	font-weight: bold;
+	padding: 12px 80px;
+	text-decoration: none;
+}
+
+.startButton:active {
+	position:relative;
+	top:1px;
+}
+
