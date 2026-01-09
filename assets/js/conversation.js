@@ -22,6 +22,10 @@ async function loadConversation() {
         if (conversation) {
             conversationData.responses = conversation.steps;
             updateHeader(conversation);
+            if (conversation.firstMessage) {
+                addMessage(conversation.firstMessage, true);
+                updateLastBubble();
+            }
         } else {
             console.error('Conversation non trouvée pour:', contactName);
         }
