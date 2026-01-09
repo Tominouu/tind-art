@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="../assets/css/messagerie.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
     <style>
+        /* Mobile First - Base styles */
+        * {
+            box-sizing: border-box;
+        }
+        
         .camera-container {
             display: none;
             flex-direction: column;
@@ -18,38 +23,42 @@
             gap: 20px;
             width: 100%;
             max-width: 500px;
-            margin: 20px auto;
+            margin: 10px auto;
+            padding: 10px;
         }
         
         #video {
             width: 100%;
-            max-width: 500px;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
             transform: scaleX(-1); /* Effet miroir pour le selfie */
             background-color: #000;
             object-fit: cover;
             aspect-ratio: 3/4;
+            display: block;
         }
         
         .video-wrapper {
             position: relative;
-            width: 100%;
-            max-width: 500px;
-            border-radius: 20px;
+            width: calc(100% - 20px);
+            max-width: calc(100vw - 40px);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             background-color: #000;
+            border: 6px solid #FF007B;
+            padding: 6px;
+            margin: 10px;
         }
         
         #camera-controls {
             display: none;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 10px;
             width: 100%;
+            padding: 0 10px;
         }
         
         #error-message {
@@ -59,30 +68,39 @@
             padding: 15px;
             border-radius: 10px;
             text-align: center;
-            margin: 20px;
+            margin: 15px 10px;
+            width: calc(100% - 20px);
             max-width: 400px;
+            border: 2px solid #FF007B;
         }
         
         .button-group {
             display: flex;
-            gap: 15px;
+            flex-direction: column;
+            gap: 10px;
             width: 100%;
-            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .capture-button,
+        .cancel-button {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 42px;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px 20px;
+            text-decoration: none;
+            border: none;
+            transition: transform 0.1s;
         }
         
         .capture-button {
             background-color: #ff007b;
-            border-radius: 42px;
-            border: 1px solid #ffffff;
-            display: inline-block;
-            cursor: pointer;
             color: #ffffff;
-            font-size: 20px;
-            font-weight: bold;
-            padding: 12px 30px;
-            text-decoration: none;
-            border: none;
-            transition: transform 0.1s;
         }
         
         .capture-button:active {
@@ -91,17 +109,7 @@
         
         .cancel-button {
             background-color: #efefef;
-            border-radius: 42px;
-            border: 1px solid #ffffff;
-            display: inline-block;
-            cursor: pointer;
             color: #000000;
-            font-size: 20px;
-            font-weight: bold;
-            padding: 12px 30px;
-            text-decoration: none;
-            border: none;
-            transition: transform 0.1s;
         }
         
         .cancel-button:active {
@@ -112,7 +120,21 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
+            margin: 15px 10px;
+            width: calc(100% - 20px);
+        }
+        
+        .photo-banner {
+            margin: 10px 0;
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .photo-banner h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
         }
         
         .camera-active .initial-content {
@@ -121,6 +143,67 @@
         
         .camera-active .camera-container {
             display: flex;
+        }
+        
+        /* Tablettes et plus */
+        @media (min-width: 768px) {
+            .camera-container {
+                gap: 30px;
+                margin: 30px auto;
+                padding: 20px;
+            }
+            
+            .video-wrapper {
+                width: 100%;
+                max-width: 500px;
+                border: 4px solid #FF007B;
+                padding: 8px;
+                margin: 20px 0;
+                border-radius: 20px;
+            }
+            
+            #video {
+                border-radius: 20px;
+            }
+            
+            #camera-controls {
+                gap: 20px;
+                margin-top: 20px;
+                padding: 0 20px;
+            }
+            
+            .button-group {
+                flex-direction: row;
+                gap: 15px;
+                justify-content: center;
+            }
+            
+            .capture-button,
+            .cancel-button {
+                width: auto;
+                max-width: none;
+                font-size: 20px;
+                padding: 12px 30px;
+            }
+            
+            .initial-content {
+                margin: 30px 20px;
+                gap: 20px;
+            }
+            
+            .photo-banner {
+                margin: 20px 0;
+                padding: 20px;
+            }
+            
+            .photo-banner h2 {
+                font-size: 24px;
+            }
+            
+            #error-message {
+                margin: 30px 20px;
+                padding: 20px;
+            }
         }
     </style>
 </head>
