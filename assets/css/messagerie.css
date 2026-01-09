@@ -85,3 +85,36 @@ header {
     justify-content: center;
     gap: 100px;
 }
+
+.title-container {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	margin-left: 20px;
+	margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.back-icon {
+	color: white;
+	background-color: #FF007B;
+	padding: 10px 15px;
+	border-radius: 30px;
+}
+
+h1 {
+	font-weight: bold;
+}
+
+.low-text {
+    color: gray;
+}
+
+.message-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
