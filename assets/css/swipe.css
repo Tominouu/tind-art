@@ -31,3 +31,13 @@ header{
     border-radius: 8px;
     margin-right: 10px;
 }
+
+
+.card {
+    height: 500px;
+    width: 350px;
+    background-image: url('../images/sapiens.png');
+    background-size: cover;
+    border-radius: 30px;
+}
+
