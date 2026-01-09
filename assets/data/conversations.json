@@ -1,0 +1,58 @@
+{
+  "conversations": [
+    {
+      "contactName": "Trophime Bigot",
+      "avatar": "/assets/images/mary.jpg",
+      "steps": [
+        {
+          "userOptions": ["Option utilisateur 1 - Étape 1", "Option utilisateur 2 - Étape 1"],
+          "botResponses": {
+            "0": ["Réponse bot 1 pour option 1 - Étape 1", "Réponse bot 2 pour option 1 - Étape 1"],
+            "1": ["Réponse bot 1 pour option 2 - Étape 1", "Réponse bot 2 pour option 2 - Étape 1"]
+          }
+        },
+        {
+          "userOptions": ["Option utilisateur 1 - Étape 2", "Option utilisateur 2 - Étape 2"],
+          "botResponses": {
+            "0": ["Réponse bot 1 pour option 1 - Étape 2", "Réponse bot 2 pour option 1 - Étape 2"],
+            "1": ["Réponse bot 1 pour option 2 - Étape 2", "Réponse bot 2 pour option 2 - Étape 2"]
+          }
+        },
+        {
+          "userOptions": ["Option utilisateur 1 - Étape 3", "Option utilisateur 2 - Étape 3"],
+          "botResponses": {
+            "0": ["Réponse bot 1 pour option 1 - Étape 3", "Réponse bot 2 pour option 1 - Étape 3"],
+            "1": ["Réponse bot 1 pour option 2 - Étape 3", "Réponse bot 2 pour option 2 - Étape 3"]
+          }
+        }
+      ]
+    },
+    {
+      "contactName": "Paul Cezanne",
+      "avatar": "/assets/images/cezanne.jpg",
+      "steps": [
+        {
+          "userOptions": ["Option utilisateur 1 - Étape 1", "Option utilisateur 2 - Étape 1"],
+          "botResponses": {
+            "0": ["Réponse bot 1 pour option 1 - Étape 1", "Réponse bot 2 pour option 1 - Étape 1"],
+            "1": ["Réponse bot 1 pour option 2 - Étape 1", "Réponse bot 2 pour option 2 - Étape 1"]
+          }
+        },
+        {
+          "userOptions": ["Option utilisateur 1 - Étape 2", "Option utilisateur 2 - Étape 2"],
+          "botResponses": {
+            "0": ["Réponse bot 1 pour option 1 - Étape 2", "Réponse bot 2 pour option 1 - Étape 2"],
+            "1": ["Réponse bot 1 pour option 2 - Étape 2", "Réponse bot 2 pour option 2 - Étape 2"]
+          }
+        },
+        {
+          "userOptions": ["Option utilisateur 1 - Étape 3", "Option utilisateur 2 - Étape 3"],
+          "botResponses": {
+            "0": ["Réponse bot 1 pour option 1 - Étape 3", "Réponse bot 2 pour option 1 - Étape 3"],
+            "1": ["Réponse bot 1 pour option 2 - Étape 3", "Réponse bot 2 pour option 2 - Étape 3"]
+          }
+        }
+      ]
+    }
+  ]
+}
