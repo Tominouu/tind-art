@@ -3,6 +3,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 	font-family: "Afacad", sans-serif;
   	font-optical-sizing: auto;
   	font-weight: 500;
@@ -38,40 +39,50 @@
 .content-avatar {
     display: flex;
     flex-direction: column;
-    height: 50vh;
+    min-height: auto;
 }
 
 .box-color {
     background-color: #FFF2F7;
     padding: 30px;
-    margin-left: -30px;
-    margin-right: -30px;
 }
 
 
 .box-content{
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
-    margin-right: 30px;
 }
+
+.box-personnages{
+    display: flex;
+    justify-content: center;
+}
+
 
 .personnages{
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     margin-top: 30px;
+    width: 300px;
     justify-content: center;
+}
+
+@media (min-width: 600px) {
+    .personnages {
+        max-width: 330px;
+    }
 }
 
 
 .avatar{
     width: 80px;
     border-radius: 10px;
+    border: 2px solid transparent;
 }
 
 .selected{
-    border: 2px solid #ff007b;
+    border-color: #ff007b;
     border-radius: 14px;
 }
 
