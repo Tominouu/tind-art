@@ -1,16 +1,8 @@
-# ======================================
-# Configuration de base
-# ======================================
 
 Options -Indexes
 DirectoryIndex index.html
 
 RewriteEngine On
-
-
-# ======================================
-# URLs propres (sans .html)
-# ======================================
 
 RewriteRule ^index$ /index.html [L,QSA]
 
@@ -21,11 +13,6 @@ RewriteRule ^messagerie$ /pages/messagerie.html [L,QSA]
 RewriteRule ^feed$ /pages/swipe.html [L,QSA]
 
 RewriteRule ^conversation$ /pages/conversation.html [L,QSA]
-
-
-# ======================================
-# Sécurité minimale (optionnel)
-# ======================================
 
 <Files ".htaccess">
     Order allow,deny
