@@ -74,7 +74,7 @@ main {
     color: #ffffff;
     font-size: 26px;
     font-weight: bold;
-    padding: 12px 80px;
+    padding: 12px 30px;
     text-decoration: none;
 }
 
@@ -239,5 +239,16 @@ h1 {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
+}
+
+
+.photo-banner {
+    background-color: #FFF0F6;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
     gap: 20px;
 }
