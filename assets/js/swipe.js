@@ -3,5 +3,117 @@ const avatarImg = document.getElementById('avatar-selected');
 
 if (avatarChoisi && avatarImg) {
     avatarImg.src = `../assets/images/${avatarChoisi}.jpg`;
-    avatarImg.alt = avatarChoisi;
+}
+
+
+const cardsData = [
+    { image: '../assets/images/card.svg ' },
+    { image: '../assets/images/card.svg' },
+    { image: '../assets/images/card.svg' }
+];
+
+const cardStack = document.getElementById('card-stack');
+let currentIndex = 0;
+
+
+loadNextCard();
+loadNextCard(); 
+
+
+function createCard(data) {
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.style.backgroundImage = `url(${data.image})`;
+
+    card.innerHTML = `
+        <div class="choices">
+            <button class="choice-btn nope">
+                <img src="../assets/images/next.svg" alt="Passer">
+            </button>
+            <button class="choice-btn like">
+                <img src="../assets/images/like.svg" alt="Aimer">
+            </button>
+        </div>
+    `;
+
+    addSwipe(card);
+
+    card.querySelector('.like').onclick = () => swipe(card, 'right');
+    card.querySelector('.nope').onclick = () => swipe(card, 'left');
+
+    return card;
+}
+
+function loadNextCard() {
+    if (currentIndex >= cardsData.length) return;
+
+    const card = createCard(cardsData[currentIndex]);
+    card.style.zIndex = 10 - currentIndex;
+    cardStack.appendChild(card);
+
+    currentIndex++;
+}
+
+
+function addSwipe(card) {
+    let startX = 0;
+    let currentX = 0;
+    let dragging = false;
+    const threshold = 100;
+
+    card.addEventListener('touchstart', start);
+    card.addEventListener('touchmove', move);
+    card.addEventListener('touchend', end);
+
+    card.addEventListener('mousedown', start);
+    card.addEventListener('mousemove', move);
+    card.addEventListener('mouseup', end);
+    card.addEventListener('mouseleave', end);
+
+    function start(e) {
+        dragging = true;
+        startX = getX(e);
+        card.style.transition = 'none';
+    }
+
+    function move(e) {
+        if (!dragging) return;
+
+        currentX = getX(e);
+        const dx = currentX - startX;
+
+        card.style.transform = `
+            translateX(${dx}px)
+            rotate(${dx * 0.05}deg)
+        `;
+    }
+
+    function end() {
+        if (!dragging) return;
+        dragging = false;
+
+        const dx = currentX - startX;
+        card.style.transition = 'transform 0.3s ease';
+
+        if (dx > threshold) swipe(card, 'right');
+        else if (dx < -threshold) swipe(card, 'left');
+        else card.style.transform = 'translateX(0)';
+    }
+}
+
+function swipe(card, direction) {
+    const moveX = direction === 'right' ? 120 : -120;
+
+    card.style.transform = `translateX(${moveX}vw) rotate(${moveX / 6}deg)`;
+
+    setTimeout(() => {
+        card.remove();
+        loadNextCard();
+    }, 300);
+
+    console.log(direction === 'right' ? 'LIKE ❤️' : 'NOPE ❌');
+}
+
+function getX(e) {
+    return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
 }
