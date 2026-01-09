@@ -21,8 +21,14 @@ async function accederCamera() {
             video.srcObject = stream;
             video.play();
             
+            // Afficher le container de la caméra et masquer le contenu initial
+            const mainContainer = document.getElementById('main-container');
+            if (mainContainer) {
+                mainContainer.classList.add('camera-active');
+            }
+            
             // Afficher les contrôles de capture
-            document.getElementById('camera-controls').style.display = 'block';
+            document.getElementById('camera-controls').style.display = 'flex';
             document.getElementById('error-message').style.display = 'none';
         }
     } catch (error) {
@@ -59,6 +65,9 @@ function capturerPhoto() {
     canvas.height = video.videoHeight;
     
     const ctx = canvas.getContext('2d');
+    // Inverser horizontalement pour correspondre à l'affichage miroir
+    ctx.translate(canvas.width, 0);
+    ctx.scale(-1, 1);
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
     
     // Convertir en base64
@@ -108,6 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
         annulerButton.addEventListener('click', () => {
             arreterCamera();
             // Masquer les contrôles et réafficher le bouton initial
+            const mainContainer = document.getElementById('main-container');
+            if (mainContainer) {
+                mainContainer.classList.remove('camera-active');
+            }
             document.getElementById('camera-controls').style.display = 'none';
             document.getElementById('error-message').style.display = 'none';
         });
