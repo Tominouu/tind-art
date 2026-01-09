@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#FFF0F6">
+
+    <title>Tind'Art - Photo</title>
+    <link rel="stylesheet" href="../assets/css/messagerie.css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+    <style>
+        .photo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        #photo-affichee {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .message-photo {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+        }
+        
+        .no-photo-message {
+            text-align: center;
+            color: #ff007b;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="content-center">
+    <div class="photo-container">
+        <h2>Votre photo</h2>
+        <div id="photo-display">
+            <!-- La photo sera affichée ici -->
+        </div>
+    </div>
+</div>
+
+<script>
+    // Récupérer la photo depuis localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+        const photoData = localStorage.getItem('photoCapturee');
+        const photoDisplay = document.getElementById('photo-display');
+        
+        if (photoData) {
+            // Créer une image et l'afficher
+            const img = document.createElement('img');
+            img.id = 'photo-affichee';
+            img.src = photoData;
+            img.alt = 'Photo capturée';
+            photoDisplay.appendChild(img);
+            
+            // Ajouter un message
+            const message = document.createElement('p');
+            message.className = 'message-photo';
+            message.textContent = 'Photo capturée avec succès !';
+            photoDisplay.appendChild(message);
+        } else {
+            // Afficher un message si aucune photo n'est disponible
+            const noPhotoMessage = document.createElement('p');
+            noPhotoMessage.className = 'no-photo-message';
+            noPhotoMessage.textContent = 'Aucune photo disponible. Veuillez prendre une photo depuis la page précédente.';
+            photoDisplay.appendChild(noPhotoMessage);
+        }
+    });
+</script>
+</body>
+</html>

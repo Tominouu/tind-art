@@ -10,17 +10,101 @@
     <title>Tind'Art</title>
     <link rel="stylesheet" href="../assets/css/messagerie.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
-
+    <style>
+        #video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        #camera-controls {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        #error-message {
+            display: none;
+            color: #ff007b;
+            background-color: #FFF0F6;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px;
+            max-width: 400px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .capture-button {
+            background-color: #ff007b;
+            border-radius: 42px;
+            border: 1px solid #ffffff;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 12px 30px;
+            text-decoration: none;
+            border: none;
+        }
+        
+        .capture-button:active {
+            position: relative;
+            top: 1px;
+        }
+        
+        .cancel-button {
+            background-color: #efefef;
+            border-radius: 42px;
+            border: 1px solid #ffffff;
+            display: inline-block;
+            cursor: pointer;
+            color: #000000;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 12px 30px;
+            text-decoration: none;
+            border: none;
+        }
+        
+        .cancel-button:active {
+            position: relative;
+            top: 1px;
+        }
+    </style>
 </head>
 <body>
 <div class="content-center">
     <img src="../assets/images/take-photo.png" width="100" alt="Mary">
-<div class="photo-banner">
-    <h2>PRENONS UNE PHOTO ENSEMBLE !</h2>
-    <a href="photo.html" class="startButton ">Acceder à la caméra</a>
+    <div class="photo-banner">
+        <h2>PRENONS UNE PHOTO ENSEMBLE !</h2>
+        <button id="acceder-camera-btn" class="startButton">Accéder à la caméra</button>
+    </div>
+    
+    <!-- Message d'erreur -->
+    <div id="error-message"></div>
+    
+    <!-- Flux vidéo -->
+    <video id="video" autoplay playsinline></video>
+    
+    <!-- Contrôles de capture -->
+    <div id="camera-controls">
+        <div class="button-group">
+            <button id="capturer-btn" class="capture-button">📷 Prendre la photo</button>
+            <button id="annuler-btn" class="cancel-button">Annuler</button>
+        </div>
+    </div>
 </div>
 
-
-</div>
+<script src="../assets/js/photo.js"></script>
 </body>
 </html>
