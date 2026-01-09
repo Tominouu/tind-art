@@ -47,7 +47,7 @@ header {
 .card {
     height: 500px;
     width: 350px;
-    background-image: url('../images/card.png');
+    background-image: url('../images/card.svg');
     background-size: cover;
     border-radius: 30px;
 }
