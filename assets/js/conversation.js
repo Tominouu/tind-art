@@ -1,0 +1,147 @@
+let conversationData = {
+    currentStep: 0,
+    lastSender: null,
+    responses: []
+};
+
+const discussionEl = document.querySelector('.discussion');
+const chooseContainer = document.querySelector('.choose-container');
+
+function getContactNameFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('contact') || 'Paul Cezanne';
+}
+
+async function loadConversation() {
+    try {
+        const response = await fetch('/assets/data/conversations.json');
+        const data = await response.json();
+        const contactName = getContactNameFromURL();
+        const conversation = data.conversations.find(c => c.contactName === contactName);
+        
+        if (conversation) {
+            conversationData.responses = conversation.steps;
+            updateHeader(conversation);
+        } else {
+            console.error('Conversation non trouvée pour:', contactName);
+        }
+    } catch (error) {
+        console.error('Erreur lors du chargement des conversations:', error);
+    }
+}
+
+function updateHeader(conversation) {
+    const avatarImg = document.querySelector('.avatar-conversation');
+    const nameH3 = document.querySelector('.title-container-conversation h3');
+    if (avatarImg) avatarImg.src = conversation.avatar;
+    if (avatarImg) avatarImg.alt = conversation.contactName;
+    if (nameH3) nameH3.textContent = conversation.contactName;
+}
+
+function addMessage(text, isSender) {
+    const bubbles = discussionEl.querySelectorAll('.bubble');
+    const lastBubble = bubbles[bubbles.length - 1];
+    const isSameSender = lastBubble && lastBubble.classList.contains(isSender ? 'sender' : 'recipient');
+    
+    if (lastBubble) {
+        if (isSameSender) {
+            lastBubble.classList.remove('first', 'last');
+            lastBubble.classList.add('middle');
+        } else {
+            lastBubble.classList.remove('first', 'middle');
+            lastBubble.classList.add('last');
+        }
+    }
+    
+    const bubble = document.createElement('div');
+    const position = isSameSender ? 'middle' : 'first';
+    bubble.className = `bubble ${isSender ? 'sender' : 'recipient'} ${position}`;
+    bubble.textContent = text;
+    discussionEl.appendChild(bubble);
+    
+    discussionEl.scrollTop = discussionEl.scrollHeight;
+    conversationData.lastSender = isSender;
+}
+
+function updateLastBubble() {
+    const bubbles = discussionEl.querySelectorAll('.bubble');
+    if (bubbles.length > 0) {
+        const lastBubble = bubbles[bubbles.length - 1];
+        lastBubble.classList.remove('first', 'middle');
+        lastBubble.classList.add('last');
+    }
+}
+
+function updateOptions() {
+    if (conversationData.currentStep >= conversationData.responses.length) {
+        chooseContainer.innerHTML = '';
+        updateLastBubble();
+        return;
+    }
+    const current = conversationData.responses[conversationData.currentStep];
+    chooseContainer.innerHTML = current.userOptions.map((option, index) => 
+        `<div class="choose-conversation" data-index="${index}">
+            <h3 style="color: white">${option}</h3>
+        </div>`
+    ).join('');
+    document.querySelectorAll('.choose-conversation').forEach(btn => {
+        btn.addEventListener('click', handleOptionClick);
+    });
+}
+
+function showWaitingMessage() {
+    const current = conversationData.responses[conversationData.currentStep];
+    chooseContainer.innerHTML = current.userOptions.map(() => 
+        `<div class="choose-conversation"><h3 style="color: white">En attente de réponse</h3></div>`
+    ).join('');
+}
+
+function removeTypingBubble() {
+    const typingBubble = discussionEl.querySelector('.typing-indicator');
+    if (typingBubble) {
+        typingBubble.remove();
+    }
+}
+
+function showTypingBubble() {
+    const bubbles = discussionEl.querySelectorAll('.bubble');
+    const lastBubble = bubbles[bubbles.length - 1];
+    const isSameSender = lastBubble && lastBubble.classList.contains('sender');
+    
+    if (lastBubble && isSameSender) {
+        lastBubble.classList.remove('first', 'last');
+        lastBubble.classList.add('middle');
+    } else if (lastBubble) {
+        lastBubble.classList.remove('first', 'middle');
+        lastBubble.classList.add('last');
+    }
+    
+    const typingBubble = document.createElement('div');
+    typingBubble.className = `bubble sender ${isSameSender ? 'middle' : 'first'} typing-indicator`;
+    typingBubble.textContent = '...';
+    discussionEl.appendChild(typingBubble);
+    discussionEl.scrollTop = discussionEl.scrollHeight;
+}
+
+function handleOptionClick(e) {
+    const index = parseInt(e.currentTarget.dataset.index);
+    const current = conversationData.responses[conversationData.currentStep];
+    addMessage(current.userOptions[index], false);
+    updateLastBubble();
+    showWaitingMessage();
+    showTypingBubble();
+    const delay = Math.floor(Math.random() * 2000) + 2000;
+    setTimeout(() => {
+        removeTypingBubble();
+        const botResponses = current.botResponses[index];
+        const randomBotResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
+        addMessage(randomBotResponse, true);
+        updateLastBubble();
+        conversationData.currentStep++;
+        updateOptions();
+    }, delay);
+}
+
+loadConversation().then(() => {
+    updateOptions();
+});
