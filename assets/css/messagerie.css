@@ -8,6 +8,7 @@
     font-weight: 500;
     font-style: normal;
 }
+
 a {
     text-decoration: none;
     color: black;
@@ -20,9 +21,22 @@ a :hover {
 header {
     background-color: #FFF0F6;
     padding: 10px 10px;
-	border-bottom-left-radius: 20px;
-	border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: fixed;
+    width: 100%;
+    margin-top: -20px;
 }
+
+footer {
+    background-color: #FFF0F6;
+    padding: 20px 0px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    position: fixed;
+    width: 100%;
+}
+
 
 .content-center {
     display: flex;
@@ -100,11 +114,11 @@ header {
 }
 
 .title-container {
-	display: flex;
-	align-items: center;
-	gap: 20px;
-	margin-left: 20px;
-	margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 20px;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -119,10 +133,10 @@ header {
 }
 
 .back-icon {
-	color: white;
-	background-color: #FF007B;
-	padding: 10px 15px;
-	border-radius: 30px;
+    color: white;
+    background-color: #FF007B;
+    padding: 10px 15px;
+    border-radius: 30px;
 }
 
 .back-icon-conversation {
@@ -134,7 +148,7 @@ header {
 }
 
 h1 {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .low-text {
@@ -148,4 +162,74 @@ h1 {
     margin-left: 20px;
     margin-bottom: 15px;
     margin-top: 15px;
+}
+
+
+.discussion {
+    margin: 20px 20px;
+
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.discussion > .bubble {
+    border-radius: 1em;
+    padding: 0.25em 0.75em;
+    margin: 0.0625em;
+    margin-top: 20px;
+    max-width: 50%;
+}
+
+.discussion > .bubble.sender {
+    align-self: flex-start;
+    background-color: #efefef;
+    color: #000000;
+}
+
+.discussion > .bubble.recipient {
+    align-self: flex-end;
+    background-color: #FF007B;
+    color: white;
+}
+
+.discussion > .bubble.sender.first {
+    border-bottom-left-radius: 0.1em;
+}
+
+.discussion > .bubble.sender.last {
+    border-top-left-radius: 0.1em;
+}
+
+.discussion > .bubble.sender.middle {
+    border-bottom-left-radius: 0.1em;
+    border-top-left-radius: 0.1em;
+}
+
+.discussion > .bubble.recipient.first {
+    border-bottom-right-radius: 0.1em;
+}
+
+.discussion > .bubble.recipient.last {
+    border-top-right-radius: 0.1em;
+}
+
+.discussion > .bubble.recipient.middle {
+    border-bottom-right-radius: 0.1em;
+    border-top-right-radius: 0.1em;
+}
+
+
+.choose-conversation {
+    background-color: #ff007b;
+    border-radius: 10px;
+    padding: 5px 20px;
+}
+
+
+.choose-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
