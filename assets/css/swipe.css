@@ -1,0 +1,23 @@
+.fa-regular fa-comments {
+    width: 50px;
+    color: black;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header-right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+}
+#avatar-selected{
+    width: 60px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
