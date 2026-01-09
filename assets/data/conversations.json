@@ -3,6 +3,7 @@
     {
       "contactName": "Trophime Bigot",
       "avatar": "/assets/images/mary.jpg",
+      "firstMessage": "Message initial du bot 1",
       "steps": [
         {
           "userOptions": ["Option utilisateur 1 - Étape 1", "Option utilisateur 2 - Étape 1"],
@@ -30,6 +31,7 @@
     {
       "contactName": "Paul Cezanne",
       "avatar": "/assets/images/cezanne.jpg",
+      "firstMessage": "Message initial du bot 2",
       "steps": [
         {
           "userOptions": ["Option utilisateur 1 - Étape 1", "Option utilisateur 2 - Étape 1"],

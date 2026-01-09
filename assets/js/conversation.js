@@ -22,6 +22,10 @@ async function loadConversation() {
         if (conversation) {
             conversationData.responses = conversation.steps;
             updateHeader(conversation);
+            if (conversation.firstMessage) {
+                addMessage(conversation.firstMessage, true);
+                updateLastBubble();
+            }
         } else {
             console.error('Conversation non trouvée pour:', contactName);
         }
@@ -76,6 +80,10 @@ function updateOptions() {
     if (conversationData.currentStep >= conversationData.responses.length) {
         chooseContainer.innerHTML = '';
         updateLastBubble();
+        // Navigation automatique vers date.html à la fin de la conversation
+        setTimeout(() => {
+            window.location.href = '/pages/date.html';
+        }, 1000); // Délai de 1 seconde avant la redirection
         return;
     }
     const current = conversationData.responses[conversationData.currentStep];
