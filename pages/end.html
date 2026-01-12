@@ -7,7 +7,7 @@
     <link rel="manifest" href="/manifest.webmanifest">
     <meta name="theme-color" content="#FFF0F6">
 
-    <title>Tind'Art - Photo</title>
+    <title>The end</title>
     <link rel="stylesheet" href="../assets/css/messagerie.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
     <style>
@@ -18,20 +18,20 @@
             gap: 20px;
             padding: 20px;
         }
-        
+
         #photo-affichee {
             max-width: 100%;
             max-height: 70vh;
             border-radius: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         .message-photo {
             text-align: center;
             color: #666;
             font-size: 18px;
         }
-        
+
         .no-photo-message {
             text-align: center;
             color: #ff007b;
@@ -54,7 +54,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         const photoData = localStorage.getItem('photoCapturee');
         const photoDisplay = document.getElementById('photo-display');
-        
+
         if (photoData) {
             // Créer une image et l'afficher
             const img = document.createElement('img');
@@ -62,7 +62,7 @@
             img.src = photoData;
             img.alt = 'Photo capturée';
             photoDisplay.appendChild(img);
-            
+
             // Ajouter un message
             const message = document.createElement('p');
             message.className = 'message-photo';
