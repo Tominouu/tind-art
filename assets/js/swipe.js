@@ -5,17 +5,70 @@ if (avatarChoisi && avatarImg) {
     avatarImg.src = `../assets/images/${avatarChoisi}.jpg`;
 }
 
-const cardsData = [
-    { image: '../assets/images/luca.png' },
-    { image: '../assets/images/dirck.png' },
-    { image: '../assets/images/card.svg' }
+
+const baseProfiles = [
+    { id: 1, name: "Luca", image: "../assets/images/luca.png" },
+    { id: 2, name: "Dirck", image: "../assets/images/dirck.png" },
+    { id: 3, name: "Art mystère", image: "../assets/images/card.svg" },
+    { id: 4, name: "Emma", image: "../assets/images/card.svg" },
+    { id: 5, name: "Lucas", image: "../assets/images/card.svg" },
+    { id: 6, name: "Nina", image: "../assets/images/card.svg" },
+    { id: 7, name: "Paul", image: "../assets/images/card.svg" },
+    { id: 8, name: "Leo", image: "../assets/images/card.svg" },
+    { id: 9, name: "Maya", image: "../assets/images/card.svg" },
+    { id: 10, name: "Hugo", image: "../assets/images/card.svg" },
+    { id: 11, name: "Anna", image: "../assets/images/card.svg" },
+    { id: 12, name: "Noah", image: "../assets/images/card.svg" },
+    { id: 13, name: "Jade", image: "../assets/images/card.svg" },
+    { id: 14, name: "Eva", image: "../assets/images/card.svg" },
+    { id: 15, name: "Tom", image: "../assets/images/card.svg" }
 ];
 
-const cardStack = document.getElementById('card-stack');
+
+function shuffle(array) {
+    return [...array].sort(() => Math.random() - 0.5);
+}
+
+function getRandomPercent() {
+    return Math.floor(Math.random() * 100) + 1;
+}
+
+function getRandomMatchRate() {
+    return Math.floor(Math.random() * 50) + 30;
+}
+
+
+let cardsData = [];
 let currentIndex = 0;
 
+function initGame() {
+    const shuffled = shuffle(baseProfiles);
+
+    cardsData = shuffled.map((profile, index) => {
+        if (index < 6) {
+            return {
+                ...profile,
+                matchable: true,
+                matchRate: getRandomMatchRate()
+            };
+        }
+
+        return {
+            ...profile,
+            matchable: false,
+            matchRate: 0
+        };
+    });
+}
+
+
+const cardStack = document.getElementById('card-stack');
+
+
+initGame();
 loadNextCard();
-loadNextCard(); 
+loadNextCard();
+
 
 function createCard(data) {
     const card = document.createElement('article');
@@ -39,7 +92,6 @@ function createCard(data) {
     const likeBtn = card.querySelector('button.like');
     const nopeBtn = card.querySelector('button.nope');
 
-    // Désactive le swipe pendant le clic
     likeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         swipe(card, 'right');
@@ -50,10 +102,10 @@ function createCard(data) {
         swipe(card, 'left');
     });
 
-    addSwipe(card); // swipe tactile/mouse
-
+    addSwipe(card);
     return card;
 }
+
 
 function loadNextCard() {
     if (currentIndex >= cardsData.length) return;
@@ -64,6 +116,7 @@ function loadNextCard() {
 
     currentIndex++;
 }
+
 
 function addSwipe(card) {
     let startX = 0;
@@ -89,6 +142,7 @@ function addSwipe(card) {
 
     function move(e) {
         if (!dragging) return;
+
         currentX = getX(e);
         const dx = currentX - startX;
         const rotation = dx * 0.05;
@@ -125,6 +179,7 @@ function addSwipe(card) {
     }
 }
 
+
 function swipe(card, direction) {
     const moveX = direction === 'right' ? 120 : -120;
 
@@ -134,6 +189,7 @@ function swipe(card, direction) {
     if (direction === 'right') {
         likeOverlay.style.opacity = 1;
         nopeOverlay.style.opacity = 0;
+        checkMatch();
     } else {
         nopeOverlay.style.opacity = 1;
         likeOverlay.style.opacity = 0;
@@ -146,10 +202,30 @@ function swipe(card, direction) {
         card.remove();
         loadNextCard();
     }, 300);
-
-    console.log(direction === 'right' ? 'LIKE ❤️' : 'NOPE ❌');
 }
 
+
+function checkMatch() {
+    const profile = cardsData[currentIndex - 1];
+
+    if (!profile.matchable) return;
+
+    const roll = getRandomPercent();
+
+    console.log(`🎲 ${profile.name} → ${roll} / ${profile.matchRate}`);
+
+    if (roll <= profile.matchRate) {
+        showMatch(profile);
+    }
+}
+
+function showMatch(profile) {
+    document.location.href = "/pages/match.html";
+}
+
+
 function getX(e) {
-    return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    return e.type.includes('mouse')
+        ? e.clientX
+        : e.touches[0].clientX;
 }
