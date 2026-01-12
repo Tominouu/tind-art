@@ -7,21 +7,22 @@ if (avatarChoisi && avatarImg) {
 
 
 const baseProfiles = [
-    { id: 1, name: "Luca", image: "../assets/images/luca.png" },
-    { id: 2, name: "Dirck", image: "../assets/images/dirck.png" },
-    { id: 3, name: "Art mystère", image: "../assets/images/card.svg" },
-    { id: 4, name: "Emma", image: "../assets/images/card.svg" },
-    { id: 5, name: "Lucas", image: "../assets/images/card.svg" },
-    { id: 6, name: "Nina", image: "../assets/images/card.svg" },
-    { id: 7, name: "Paul", image: "../assets/images/card.svg" },
-    { id: 8, name: "Leo", image: "../assets/images/card.svg" },
-    { id: 9, name: "Maya", image: "../assets/images/card.svg" },
-    { id: 10, name: "Hugo", image: "../assets/images/card.svg" },
-    { id: 11, name: "Anna", image: "../assets/images/card.svg" },
-    { id: 12, name: "Noah", image: "../assets/images/card.svg" },
-    { id: 13, name: "Jade", image: "../assets/images/card.svg" },
-    { id: 14, name: "Eva", image: "../assets/images/card.svg" },
-    { id: 15, name: "Tom", image: "../assets/images/card.svg" }
+    { id: 1, name: "Luca", image: "../assets/images/luca.png", matchable: true },
+    { id: 2, name: "Dirck", image: "../assets/images/dirck.png", matchable: true },
+    { id: 3, name: "Art mystère", image: "../assets/images/card.svg", matchable: true },
+    { id: 4, name: "Emma", image: "../assets/images/card.svg", matchable: true },
+    { id: 5, name: "Lucas", image: "../assets/images/card.svg", matchable: true },
+    { id: 6, name: "Nina", image: "../assets/images/card.svg", matchable: true },
+
+    { id: 7, name: "Paul", image: "../assets/images/card.svg", matchable: false },
+    { id: 8, name: "Leo", image: "../assets/images/card.svg", matchable: false },
+    { id: 9, name: "Maya", image: "../assets/images/card.svg", matchable: false },
+    { id: 10, name: "Hugo", image: "../assets/images/card.svg", matchable: false },
+    { id: 11, name: "Anna", image: "../assets/images/card.svg", matchable: false },
+    { id: 12, name: "Noah", image: "../assets/images/card.svg", matchable: false },
+    { id: 13, name: "Jade", image: "../assets/images/card.svg", matchable: false },
+    { id: 14, name: "Eva", image: "../assets/images/card.svg", matchable: false },
+    { id: 15, name: "Tom", image: "../assets/images/card.svg", matchable: false }
 ];
 
 
@@ -42,24 +43,31 @@ let cardsData = [];
 let currentIndex = 0;
 
 function initGame() {
-    const shuffled = shuffle(baseProfiles);
+    const matchables = baseProfiles.filter(p => p.matchable);
+    const nonMatchables = baseProfiles.filter(p => !p.matchable);
 
-    cardsData = shuffled.map((profile, index) => {
-        if (index < 6) {
-            return {
-                ...profile,
-                matchable: true,
-                matchRate: getRandomMatchRate()
-            };
-        }
+    if (nonMatchables.length < 2) {
+        console.error("Il faut au moins 2 cartes non-matchables");
+        return;
+    }
 
-        return {
-            ...profile,
-            matchable: false,
-            matchRate: 0
-        };
-    });
+    const shuffledNonMatchables = shuffle(nonMatchables);
+
+    const firstCards = shuffledNonMatchables.slice(0, 2);
+
+    const remainingCards = shuffle([
+        ...shuffledNonMatchables.slice(2),
+        ...matchables
+    ]);
+
+    cardsData = [...firstCards, ...remainingCards].map(profile => ({
+        ...profile,
+        matchRate: profile.matchable ? getRandomMatchRate() : 0
+    }));
+
+    currentIndex = 0;
 }
+
 
 
 const cardStack = document.getElementById('card-stack');
@@ -67,7 +75,7 @@ const cardStack = document.getElementById('card-stack');
 
 initGame();
 loadNextCard();
-loadNextCard();
+loadNextCard(); 
 
 
 function createCard(data) {
@@ -208,7 +216,10 @@ function swipe(card, direction) {
 function checkMatch() {
     const profile = cardsData[currentIndex - 1];
 
-    if (!profile.matchable) return;
+    if (!profile.matchable) {
+        console.log(`❌ ${profile.name} → non matchable (hors salle)`);
+        return;
+    }
 
     const roll = getRandomPercent();
 
@@ -220,7 +231,10 @@ function checkMatch() {
 }
 
 function showMatch(profile) {
-    document.location.href = "/pages/match.html";
+    console.log(`💖 MATCH avec ${profile.name}`);
+    setTimeout(() => {
+        document.location.href = "/pages/match.html";
+    }, 2500);
 }
 
 
