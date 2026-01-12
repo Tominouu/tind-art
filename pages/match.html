@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#FFF0F6">
+
+    <title>Tind'Art</title>
+    <link rel="stylesheet" href="../assets/css/messagerie.css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+</head>
+<body>
+<div class="content-center">
+    <img src="../assets/images/match_people.png" width="300" alt="Mary">
+    <div id="lottie-animation" style="width: 100%; max-width: 400px; margin: 20px auto; display: flex; justify-content: center;"></div>
+
+    <h1>MATCH !</h1>
+    <a href="photo.html" class="startButton ">Parlons ensemble !</a>
+
+</div>
+<script>
+    // Initialiser l'animation Lottie
+    const animationContainer = document.getElementById('lottie-animation');
+    const animation = lottie.loadAnimation({
+        container: animationContainer,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '../assets/data/match_screen.json'
+    });
+</script>
+</body>
+</html>
