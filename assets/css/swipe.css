@@ -157,7 +157,7 @@ body.no-scroll {
     content: "";
     position: sticky;
     top: 12px;
-    margin: 0 auto 12px;
+    margin: 10px auto 12px;
     display: block;
     width: 48px;
     height: 5px;
