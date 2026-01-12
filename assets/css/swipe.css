@@ -96,3 +96,31 @@ body {
 .choice-btn:active img {
     transform: scale(0.9);
 }
+
+.overlay {
+    position: absolute;
+    top: 24px;
+    padding: 8px 16px;
+    border: 4px solid;
+    font-size: 32px;
+    font-weight: 700;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+}
+
+.like-overlay {
+    left: 24px;
+    color: #27ae60;
+    border-color: #27ae60;
+    transform: rotate(-15deg);
+}
+
+.nope-overlay {
+    right: 24px;
+    color: #e74c3c;
+    border-color: #e74c3c;
+    transform: rotate(15deg);
+}
+
