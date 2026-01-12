@@ -12,6 +12,12 @@ body {
     background: #fff;
 }
 
+body.no-scroll {
+  position: fixed;
+  width: 100%;
+}
+
+
 
 .header {
     position: fixed;
@@ -89,7 +95,7 @@ body {
 }
 
 .choice-btn img {
-    width: 64px;
+    width: 80px;
     transition: transform 0.2s ease;
 }
 
