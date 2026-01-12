@@ -269,7 +269,7 @@ function addInfoPanelDrag(card) {
     let dragging = false;
 
     const CLOSED = 90; // % fermé
-    const OPEN = 0;    // % ouvert
+    const OPEN = 25;    // % ouvert
 
     panel.addEventListener('touchstart', start);
     panel.addEventListener('touchmove', move);
