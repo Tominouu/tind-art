@@ -158,7 +158,6 @@ function addSwipe(card) {
         const dx = getX(e) - startX;
         const dy = getY(e) - startY;
 
-        // si scroll vertical → on annule le swipe
         if (Math.abs(dy) > Math.abs(dx)) {
             verticalScroll = true;
             return;
@@ -310,12 +309,13 @@ function addInfoPanelDrag(card) {
         const match = panel.style.transform.match(/translateY\((.*)%\)/);
         const current = match ? parseFloat(match[1]) : CLOSED;
 
-        // snap logique
-        if (current < 35) {
+        if (currentY < startY) {
             panel.style.transform = `translateY(${OPEN}%)`;
-        } else {
+        } 
+        else {
             panel.style.transform = `translateY(${CLOSED}%)`;
         }
     }
+
 }
 
