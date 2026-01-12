@@ -30,14 +30,6 @@ function shuffle(array) {
     return [...array].sort(() => Math.random() - 0.5);
 }
 
-function getRandomPercent() {
-    return Math.floor(Math.random() * 100) + 1;
-}
-
-function getRandomMatchRate() {
-    return Math.floor(Math.random() * 50) + 30;
-}
-
 
 let cardsData = [];
 let currentIndex = 0;
@@ -62,7 +54,6 @@ function initGame() {
 
     cardsData = [...firstCards, ...remainingCards].map(profile => ({
         ...profile,
-        matchRate: profile.matchable ? getRandomMatchRate() : 0
     }));
 
     currentIndex = 0;
@@ -217,18 +208,13 @@ function checkMatch() {
     const profile = cardsData[currentIndex - 1];
 
     if (!profile.matchable) {
-        console.log(`❌ ${profile.name} → non matchable (hors salle)`);
+        console.log(`❌ ${profile.name} → hors salle`);
         return;
     }
 
-    const roll = getRandomPercent();
-
-    console.log(`🎲 ${profile.name} → ${roll} / ${profile.matchRate}`);
-
-    if (roll <= profile.matchRate) {
-        showMatch(profile);
-    }
+    showMatch(profile);
 }
+
 
 function showMatch(profile) {
     console.log(`💖 MATCH avec ${profile.name}`);
