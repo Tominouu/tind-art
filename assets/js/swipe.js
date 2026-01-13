@@ -123,16 +123,18 @@ function loadNextCard() {
 }
 
 
+/* =========================
+   ✅ SWIPE CORRIGÉ ICI
+========================= */
 function addSwipe(card) {
     let startX = 0;
     let startY = 0;
     let currentX = 0;
     let dragging = false;
-    let verticalScroll = false;
     const threshold = 100;
 
-    card.addEventListener('touchstart', start);
-    card.addEventListener('touchmove', move);
+    card.addEventListener('touchstart', start, { passive: true });
+    card.addEventListener('touchmove', move, { passive: false });
     card.addEventListener('touchend', end);
 
     card.addEventListener('mousedown', start);
@@ -145,12 +147,12 @@ function addSwipe(card) {
         if (e.target.closest('button')) return;
 
         dragging = true;
-        verticalScroll = false;
         startX = getX(e);
         startY = getY(e);
+        currentX = 0;
+
         card.style.transition = 'none';
     }
-
 
     function move(e) {
         if (!dragging) return;
@@ -158,14 +160,11 @@ function addSwipe(card) {
         const dx = getX(e) - startX;
         const dy = getY(e) - startY;
 
-        if (Math.abs(dy) > Math.abs(dx)) {
-            verticalScroll = true;
-            return;
-        }
-
-        if (verticalScroll) return;
+        // Ignore uniquement si le geste est clairement vertical
+        if (Math.abs(dy) > Math.abs(dx) * 1.2) return;
 
         currentX = dx;
+
         card.style.transform = `translateX(${dx}px) rotate(${dx * 0.05}deg)`;
 
         const likeOverlay = card.querySelector('.like-overlay');
@@ -179,15 +178,14 @@ function addSwipe(card) {
             nopeOverlay.style.opacity = opacity;
             likeOverlay.style.opacity = 0;
         }
+
+        e.preventDefault();
     }
 
     function end() {
-        if (!dragging || verticalScroll) {
-            dragging = false;
-            return;
-        }
-
+        if (!dragging) return;
         dragging = false;
+
         card.style.transition = 'transform 0.3s ease';
 
         if (currentX > threshold) swipe(card, 'right');
@@ -267,8 +265,8 @@ function addInfoPanelDrag(card) {
     let panelStart = 0;
     let dragging = false;
 
-    const CLOSED = 90; // % fermé
-    const OPEN = 25;    // % ouvert
+    const CLOSED = 90;
+    const OPEN = 25;
 
     panel.addEventListener('touchstart', start);
     panel.addEventListener('touchmove', move);
@@ -306,15 +304,10 @@ function addInfoPanelDrag(card) {
 
         panel.style.transition = 'transform 0.25s ease';
 
-        const match = panel.style.transform.match(/translateY\((.*)%\)/);
-        const current = match ? parseFloat(match[1]) : CLOSED;
-
         if (currentY < startY) {
             panel.style.transform = `translateY(${OPEN}%)`;
-        } 
-        else {
+        } else {
             panel.style.transform = `translateY(${CLOSED}%)`;
         }
     }
-
 }
