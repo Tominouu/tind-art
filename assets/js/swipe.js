@@ -75,8 +75,8 @@ function createCard(data) {
     card.style.backgroundImage = `url(${data.image})`;
 
     card.innerHTML = `
-        <div class="overlay like-overlay">LIKE</div>
-        <div class="overlay nope-overlay">NOPE</div>
+        <img src="../assets/images/like-overlay.svg" alt="Logo" class="overlay like-overlay"></img>
+        <img src="../assets/images/nope-overlay.svg" alt="Logo" class="overlay nope-overlay"></img>
 
         <div class="choices">
             <button class="choice-btn nope">
