@@ -126,7 +126,17 @@ body.no-scroll {
     transform: scale(1);
 }
 
+.card.is-like .choice-btn.nope .next {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
 .card.is-nope .choice-btn.nope .next {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.card.is-nope .choice-btn.like .like {
     opacity: 0;
     transform: scale(0.9);
 }
