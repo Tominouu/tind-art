@@ -138,15 +138,6 @@ function addSwipe(card) {
     const threshold = 100;
     const LOCK_DISTANCE = 12;
 
-    const likeBtn = card.querySelector('.choice-btn.like');
-    const nopeBtn = card.querySelector('.choice-btn.nope');
-
-    const like = likeBtn.querySelector('.like');
-    const likeAfter = likeBtn.querySelector('.like-after');
-
-    const next = nopeBtn.querySelector('.next');
-    const nextAfter = nopeBtn.querySelector('.next-after');
-
     const likeOverlay = card.querySelector('.like-overlay');
     const nopeOverlay = card.querySelector('.nope-overlay');
 
@@ -193,22 +184,14 @@ function addSwipe(card) {
         resetUI();
 
         if (dx > 0) {
-            // 👉 SWIPE DROITE → LIKE
-            like.style.display = 'none';
-            likeAfter.style.display = 'block';
-            next.style.display = 'none';
-            nextAfter.style.display = 'none';
-
-            likeOverlay.style.opacity = 1;
+            // 👉 LIKE
+            card.classList.add('is-like');
+            likeOverlay.style.opacity = Math.min(dx / threshold, 1);
         } 
         else if (dx < 0) {
-            // 👉 SWIPE GAUCHE → NEXT
-            next.style.display = 'none';
-            nextAfter.style.display = 'block';
-            like.style.display = 'none';
-            likeAfter.style.display = 'none';
-
-            nopeOverlay.style.opacity = 1;
+            // 👉 NEXT
+            card.classList.add('is-nope');
+            nopeOverlay.style.opacity = Math.min(Math.abs(dx) / threshold, 1);
         }
 
         e.preventDefault();
@@ -231,13 +214,7 @@ function addSwipe(card) {
     }
 
     function resetUI() {
-        // boutons
-        like.style.display = 'block';
-        likeAfter.style.display = 'none';
-        next.style.display = 'block';
-        nextAfter.style.display = 'none';
-
-        // overlays
+        card.classList.remove('is-like', 'is-nope');
         likeOverlay.style.opacity = 0;
         nopeOverlay.style.opacity = 0;
     }
@@ -247,22 +224,20 @@ function addSwipe(card) {
 
 
 
-
-
-
 function swipe(card, direction) {
     const moveX = direction === 'right' ? 120 : -120;
+
+    card.classList.remove('is-like', 'is-nope');
+    card.classList.add(direction === 'right' ? 'is-like' : 'is-nope');
 
     const likeOverlay = card.querySelector('.like-overlay');
     const nopeOverlay = card.querySelector('.nope-overlay');
 
+    likeOverlay.style.opacity = direction === 'right' ? 1 : 0;
+    nopeOverlay.style.opacity = direction === 'left' ? 1 : 0;
+
     if (direction === 'right') {
-        likeOverlay.style.opacity = 1;
-        nopeOverlay.style.opacity = 0;
         checkMatch();
-    } else {
-        nopeOverlay.style.opacity = 1;
-        likeOverlay.style.opacity = 0;
     }
 
     card.style.transition = 'transform 0.3s ease';
@@ -273,6 +248,7 @@ function swipe(card, direction) {
         loadNextCard();
     }, 300);
 }
+
 
 
 function checkMatch() {
