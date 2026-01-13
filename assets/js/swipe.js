@@ -80,10 +80,12 @@ function createCard(data) {
 
         <div class="choices">
             <button class="choice-btn nope">
-                <img src="../assets/images/next.svg" alt="Passer">
+                <img src="../assets/images/next.svg" class="next" alt="Passer Before">
+                <img src="../assets/images/next-after.svg" class="next-after" alt="Passer After">
             </button>
             <button class="choice-btn like">
-                <img src="../assets/images/like.svg" alt="Aimer">
+                <img src="../assets/images/like.svg" class="like" alt="Aimer Before">
+                <img src="../assets/images/like-after.svg" class="like-after" alt="Aimer After">
             </button>
         </div>
 
@@ -131,9 +133,22 @@ function addSwipe(card) {
     let startY = 0;
     let currentX = 0;
     let dragging = false;
-    let lockedAxis = null; // 'x' | 'y'
+    let lockedAxis = null;
+
     const threshold = 100;
-    const LOCK_DISTANCE = 12; // pixels avant de décider l’axe
+    const LOCK_DISTANCE = 12;
+
+    const likeBtn = card.querySelector('.choice-btn.like');
+    const nopeBtn = card.querySelector('.choice-btn.nope');
+
+    const like = likeBtn.querySelector('.like');
+    const likeAfter = likeBtn.querySelector('.like-after');
+
+    const next = nopeBtn.querySelector('.next');
+    const nextAfter = nopeBtn.querySelector('.next-after');
+
+    const likeOverlay = card.querySelector('.like-overlay');
+    const nopeOverlay = card.querySelector('.nope-overlay');
 
     card.addEventListener('touchstart', start, { passive: true });
     card.addEventListener('touchmove', move, { passive: false });
@@ -143,6 +158,8 @@ function addSwipe(card) {
     card.addEventListener('mousemove', move);
     card.addEventListener('mouseup', end);
     card.addEventListener('mouseleave', end);
+
+    resetUI();
 
     function start(e) {
         if (e.target.closest('.card-info')) return;
@@ -163,51 +180,72 @@ function addSwipe(card) {
         const dx = getX(e) - startX;
         const dy = getY(e) - startY;
 
-        // Décision de l’axe seulement après un petit déplacement
         if (!lockedAxis) {
-            if (Math.abs(dx) < LOCK_DISTANCE && Math.abs(dy) < LOCK_DISTANCE) {
-                return;
-            }
+            if (Math.abs(dx) < LOCK_DISTANCE && Math.abs(dy) < LOCK_DISTANCE) return;
             lockedAxis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
         }
 
-        // Si c’est un scroll vertical → on laisse faire
         if (lockedAxis === 'y') return;
 
         currentX = dx;
-
         card.style.transform = `translateX(${dx}px) rotate(${dx * 0.05}deg)`;
 
-        const likeOverlay = card.querySelector('.like-overlay');
-        const nopeOverlay = card.querySelector('.nope-overlay');
-        const opacity = Math.min(Math.abs(dx) / 120, 1);
+        resetUI();
 
         if (dx > 0) {
-            likeOverlay.style.opacity = opacity;
-            nopeOverlay.style.opacity = 0;
-        } else {
-            nopeOverlay.style.opacity = opacity;
-            likeOverlay.style.opacity = 0;
+            // 👉 SWIPE DROITE → LIKE
+            like.style.display = 'none';
+            likeAfter.style.display = 'block';
+            next.style.display = 'none';
+            nextAfter.style.display = 'none';
+
+            likeOverlay.style.opacity = 1;
+        } 
+        else if (dx < 0) {
+            // 👉 SWIPE GAUCHE → NEXT
+            next.style.display = 'none';
+            nextAfter.style.display = 'block';
+            like.style.display = 'none';
+            likeAfter.style.display = 'none';
+
+            nopeOverlay.style.opacity = 1;
         }
 
         e.preventDefault();
     }
 
     function end() {
-        if (!dragging) return;
         dragging = false;
-
         card.style.transition = 'transform 0.3s ease';
 
-        if (currentX > threshold) swipe(card, 'right');
-        else if (currentX < -threshold) swipe(card, 'left');
+        if (currentX > threshold) {
+            swipe(card, 'right');
+        }
+        else if (currentX < -threshold) {
+            swipe(card, 'left');
+        }
         else {
             card.style.transform = 'translateX(0)';
-            card.querySelector('.like-overlay').style.opacity = 0;
-            card.querySelector('.nope-overlay').style.opacity = 0;
+            resetUI();
         }
     }
+
+    function resetUI() {
+        // boutons
+        like.style.display = 'block';
+        likeAfter.style.display = 'none';
+        next.style.display = 'block';
+        nextAfter.style.display = 'none';
+
+        // overlays
+        likeOverlay.style.opacity = 0;
+        nopeOverlay.style.opacity = 0;
+    }
 }
+
+
+
+
 
 
 
