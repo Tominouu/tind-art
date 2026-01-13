@@ -7,22 +7,22 @@ if (avatarChoisi && avatarImg) {
 
 
 const baseProfiles = [
-    { id: 1, name: "Luca", image: "../assets/images/luca.png", matchable: true },
-    { id: 2, name: "Dirck", image: "../assets/images/dirck.png", matchable: true },
-    { id: 3, name: "Art mystère", image: "../assets/images/card.svg", matchable: true },
-    { id: 4, name: "Emma", image: "../assets/images/card.svg", matchable: true },
-    { id: 5, name: "Lucas", image: "../assets/images/card.svg", matchable: true },
-    { id: 6, name: "Nina", image: "../assets/images/card.svg", matchable: true },
+    { id: 1, name: "Luca", image: "../assets/images/luca.png", infoImage: "../assets/images/description-luca.png", matchable: true },
+    { id: 2, name: "Dirck", image: "../assets/images/dirck.png", infoImage: "../assets/images/description-dirck.png", matchable: true },
+    { id: 3, name: "Art mystère", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png",  matchable: true },
+    { id: 4, name: "Emma", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: true },
+    { id: 5, name: "Lucas", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: true },
+    { id: 6, name: "Nina", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: true },
 
-    { id: 7, name: "Paul", image: "../assets/images/card.svg", matchable: false },
-    { id: 8, name: "Leo", image: "../assets/images/card.svg", matchable: false },
-    { id: 9, name: "Maya", image: "../assets/images/card.svg", matchable: false },
-    { id: 10, name: "Hugo", image: "../assets/images/card.svg", matchable: false },
-    { id: 11, name: "Anna", image: "../assets/images/card.svg", matchable: false },
-    { id: 12, name: "Noah", image: "../assets/images/card.svg", matchable: false },
-    { id: 13, name: "Jade", image: "../assets/images/card.svg", matchable: false },
-    { id: 14, name: "Eva", image: "../assets/images/card.svg", matchable: false },
-    { id: 15, name: "Tom", image: "../assets/images/card.svg", matchable: false }
+    { id: 7, name: "Paul", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
+    { id: 8, name: "Leo", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
+    { id: 9, name: "Maya", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
+    { id: 10, name: "Hugo", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
+    { id: 11, name: "Anna", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
+    { id: 12, name: "Noah", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
+    { id: 13, name: "Jade", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
+    { id: 14, name: "Eva", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
+    { id: 15, name: "Tom", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false }
 ];
 
 
@@ -86,6 +86,10 @@ function createCard(data) {
                 <img src="../assets/images/like.svg" alt="Aimer">
             </button>
         </div>
+
+        <div class="card-info">
+            <img src="${data.infoImage}" alt="Description ${data.name}">
+        </div>
     `;
 
     const likeBtn = card.querySelector('button.like');
@@ -102,8 +106,10 @@ function createCard(data) {
     });
 
     addSwipe(card);
+    addInfoPanelDrag(card);
     return card;
 }
+
 
 
 function loadNextCard() {
@@ -119,8 +125,10 @@ function loadNextCard() {
 
 function addSwipe(card) {
     let startX = 0;
+    let startY = 0;
     let currentX = 0;
     let dragging = false;
+    let verticalScroll = false;
     const threshold = 100;
 
     card.addEventListener('touchstart', start);
@@ -133,20 +141,32 @@ function addSwipe(card) {
     card.addEventListener('mouseleave', end);
 
     function start(e) {
+        if (e.target.closest('.card-info')) return;
         if (e.target.closest('button')) return;
+
         dragging = true;
+        verticalScroll = false;
         startX = getX(e);
+        startY = getY(e);
         card.style.transition = 'none';
     }
+
 
     function move(e) {
         if (!dragging) return;
 
-        currentX = getX(e);
-        const dx = currentX - startX;
-        const rotation = dx * 0.05;
+        const dx = getX(e) - startX;
+        const dy = getY(e) - startY;
 
-        card.style.transform = `translateX(${dx}px) rotate(${rotation}deg)`;
+        if (Math.abs(dy) > Math.abs(dx)) {
+            verticalScroll = true;
+            return;
+        }
+
+        if (verticalScroll) return;
+
+        currentX = dx;
+        card.style.transform = `translateX(${dx}px) rotate(${dx * 0.05}deg)`;
 
         const likeOverlay = card.querySelector('.like-overlay');
         const nopeOverlay = card.querySelector('.nope-overlay');
@@ -162,14 +182,16 @@ function addSwipe(card) {
     }
 
     function end() {
-        if (!dragging) return;
-        dragging = false;
+        if (!dragging || verticalScroll) {
+            dragging = false;
+            return;
+        }
 
-        const dx = currentX - startX;
+        dragging = false;
         card.style.transition = 'transform 0.3s ease';
 
-        if (dx > threshold) swipe(card, 'right');
-        else if (dx < -threshold) swipe(card, 'left');
+        if (currentX > threshold) swipe(card, 'right');
+        else if (currentX < -threshold) swipe(card, 'left');
         else {
             card.style.transform = 'translateX(0)';
             card.querySelector('.like-overlay').style.opacity = 0;
@@ -177,6 +199,7 @@ function addSwipe(card) {
         }
     }
 }
+
 
 
 function swipe(card, direction) {
@@ -229,3 +252,70 @@ function getX(e) {
         ? e.clientX
         : e.touches[0].clientX;
 }
+
+function getY(e) {
+    return e.type.includes('mouse')
+        ? e.clientY
+        : e.touches[0].clientY;
+}
+
+function addInfoPanelDrag(card) {
+    const panel = card.querySelector('.card-info');
+
+    let startY = 0;
+    let currentY = 0;
+    let panelStart = 0;
+    let dragging = false;
+
+    const CLOSED = 90; // % fermé
+    const OPEN = 25;    // % ouvert
+
+    panel.addEventListener('touchstart', start);
+    panel.addEventListener('touchmove', move);
+    panel.addEventListener('touchend', end);
+
+    panel.addEventListener('mousedown', start);
+    panel.addEventListener('mousemove', move);
+    panel.addEventListener('mouseup', end);
+    panel.addEventListener('mouseleave', end);
+
+    function start(e) {
+        dragging = true;
+        startY = getY(e);
+        panel.style.transition = 'none';
+
+        const match = panel.style.transform.match(/translateY\((.*)%\)/);
+        panelStart = match ? parseFloat(match[1]) : CLOSED;
+    }
+
+    function move(e) {
+        if (!dragging) return;
+
+        currentY = getY(e);
+        const dy = currentY - startY;
+
+        let newTranslate = panelStart + (dy / card.offsetHeight) * 100;
+        newTranslate = Math.max(OPEN, Math.min(CLOSED, newTranslate));
+
+        panel.style.transform = `translateY(${newTranslate}%)`;
+    }
+
+    function end() {
+        if (!dragging) return;
+        dragging = false;
+
+        panel.style.transition = 'transform 0.25s ease';
+
+        const match = panel.style.transform.match(/translateY\((.*)%\)/);
+        const current = match ? parseFloat(match[1]) : CLOSED;
+
+        if (currentY < startY) {
+            panel.style.transform = `translateY(${OPEN}%)`;
+        } 
+        else {
+            panel.style.transform = `translateY(${CLOSED}%)`;
+        }
+    }
+
+}
+
