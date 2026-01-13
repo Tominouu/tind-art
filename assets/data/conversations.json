@@ -6,55 +6,84 @@
       "firstMessage": "T'as kiffé mon autoportrait, j'ai galéré pour les effets de lumière…",
       "steps": [
         {
-          "userOptions": ["Grave, en plus t’as les sourcils bien tracés !", "Bof… pas ouf les effets"],
+          "userOptions": [
+            "Grave, en plus t’as les sourcils bien tracés !",
+            "Bof… pas ouf les effets"
+          ],
           "botResponses": {
-            "0": ["Merci ! Je peux te surprendre maintenant ;)", "Merci ! Je peux te surprendre maintenant ;)"],
-            "1": ["Pas ouf… mais je peux te surprendre si tu restes ;)", "Pas ouf… mais je peux te surprendre si tu restes ;)"]
+            "0": [
+              "Merci ! Je peux te surprendre maintenant ;)",
+              "Merci ! Je peux te surprendre maintenant ;)"
+            ],
+            "1": [
+              "Pas ouf… mais je peux te surprendre si tu restes ;)",
+              "Pas ouf… mais je peux te surprendre si tu restes ;)"
+            ]
           }
         },
         {
-          "userOptions": ["Ok, je reste, montre-moi !", "Oulaaa, t’es génant."],
+          "userOptions": [
+            "Ok, je reste, montre-moi !",
+            "Oulaaa, t’es gênant."
+          ],
           "botResponses": {
-            "0": ["Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?", "Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?"],
-            "1": ["Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?", "Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?"]
+            "0": [
+              "Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?",
+              "Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?"
+            ],
+            "1": [
+              "Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?",
+              "Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?"
+            ]
           }
         },
         {
-          "userOptions": ["Ok, j’arrête de swiper et je te rejoins !", "Non, trop peur de l’ombre et de la lumière."],
+          "userOptions": [
+            "Ok, j’arrête de swiper et je te rejoins !",
+            "Non, trop peur de l’ombre et de la lumière."
+          ],
           "botResponses": {
-            "0": ["Réponse bot 1 pour option 1 - Étape 3", "Réponse bot 2 pour option 1 - Étape 3"],
-            "1": ["Réponse bot 1 pour option 2 - Étape 3", "Réponse bot 2 pour option 2 - Étape 3"]
+            "0": [
+              "Alors viens, tu verras la lumière autrement…",
+              "Alors viens, tu verras la lumière autrement…"
+            ],
+            "1": [
+              "La peur fait partie de l’art.",
+              "La peur fait partie de l’art."
+            ]
           }
         }
       ]
     },
     {
-      "contactName": "Paul Cezanne",
-      "avatar": "/assets/images/cezanne.jpg",
-      "firstMessage": "Réponse bot 1 etape 1",
-      "steps": [
-        {
-          "userOptions": ["Option utilisateur 1 - Étape 1", "Option utilisateur 2 - Étape 1"],
-          "botResponses": {
-            "0": ["Réponse bot 1 pour option 1 - Étape 1", "Réponse bot 2 pour option 1 - Étape 1"],
-            "1": ["Réponse bot 1 pour option 2 - Étape 1", "Réponse bot 2 pour option 2 - Étape 1"]
-          }
-        },
-        {
-          "userOptions": ["Option utilisateur 1 - Étape 2", "Option utilisateur 2 - Étape 2"],
-          "botResponses": {
-            "0": ["Réponse bot 1 pour option 1 - Étape 2", "Réponse bot 2 pour option 1 - Étape 2"],
-            "1": ["Réponse bot 1 pour option 2 - Étape 2", "Réponse bot 2 pour option 2 - Étape 2"]
-          }
-        },
-        {
-          "userOptions": ["Option utilisateur 1 - Étape 3", "Option utilisateur 2 - Étape 3"],
-          "botResponses": {
-            "0": ["Réponse bot 1 pour option 1 - Étape 3", "Réponse bot 2 pour option 1 - Étape 3"],
-            "1": ["Réponse bot 1 pour option 2 - Étape 3", "Réponse bot 2 pour option 2 - Étape 3"]
-          }
-        }
-      ]
+      "contactName": "Dirck Van Baburen",
+      "avatar": "/assets/images/Dirck_van_Baburen_pp.png",
+      "firstMessage": "Tché tarpin beau le sang",
+      "steps": []
+    },
+    {
+      "contactName": "Giovanni Do",
+      "avatar": "/assets/images/Giovanni_Do_pp.png",
+      "firstMessage": "Tché tarpin beau le sang",
+      "steps": []
+    },
+    {
+      "contactName": "Bartolomé Esteban",
+      "avatar": "/assets/images/Autorretrato_de_Murillo_pp.png",
+      "firstMessage": "Tché tarpin beau le sang",
+      "steps": []
+    },
+    {
+      "contactName": "Trophime Bigot",
+      "avatar": "/assets/images/Trophime_Bigot_pp.png",
+      "firstMessage": "Tché tarpin beau le sang",
+      "steps": []
+    },
+    {
+      "contactName": "Pedro de Moya",
+      "avatar": "/assets/images/Moya_pintor_pp.png",
+      "firstMessage": "Tché tarpin beau le sang",
+      "steps": []
     }
   ]
 }
