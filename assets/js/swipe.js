@@ -131,7 +131,9 @@ function addSwipe(card) {
     let startY = 0;
     let currentX = 0;
     let dragging = false;
+    let lockedAxis = null; // 'x' | 'y'
     const threshold = 100;
+    const LOCK_DISTANCE = 12; // pixels avant de décider l’axe
 
     card.addEventListener('touchstart', start, { passive: true });
     card.addEventListener('touchmove', move, { passive: false });
@@ -147,6 +149,7 @@ function addSwipe(card) {
         if (e.target.closest('button')) return;
 
         dragging = true;
+        lockedAxis = null;
         startX = getX(e);
         startY = getY(e);
         currentX = 0;
@@ -160,8 +163,16 @@ function addSwipe(card) {
         const dx = getX(e) - startX;
         const dy = getY(e) - startY;
 
-        // Ignore uniquement si le geste est clairement vertical
-        if (Math.abs(dy) > Math.abs(dx) * 1.2) return;
+        // Décision de l’axe seulement après un petit déplacement
+        if (!lockedAxis) {
+            if (Math.abs(dx) < LOCK_DISTANCE && Math.abs(dy) < LOCK_DISTANCE) {
+                return;
+            }
+            lockedAxis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+        }
+
+        // Si c’est un scroll vertical → on laisse faire
+        if (lockedAxis === 'y') return;
 
         currentX = dx;
 
@@ -197,6 +208,7 @@ function addSwipe(card) {
         }
     }
 }
+
 
 
 
