@@ -1,26 +1,26 @@
 {
   "conversations": [
     {
-      "contactName": "Trophime Bigot",
+      "contactName": "Luca Giordano",
       "avatar": "/assets/images/mary.jpg",
-      "firstMessage": "Message initial du bot 1",
+      "firstMessage": "T'as kiffé mon autoportrait, j'ai galéré pour les effets de lumière…",
       "steps": [
         {
-          "userOptions": ["Option utilisateur 1 - Étape 1", "Option utilisateur 2 - Étape 1"],
+          "userOptions": ["Grave, en plus t’as les sourcils bien tracés !", "Bof… pas ouf les effets"],
           "botResponses": {
-            "0": ["Réponse bot 1 pour option 1 - Étape 1", "Réponse bot 2 pour option 1 - Étape 1"],
-            "1": ["Réponse bot 1 pour option 2 - Étape 1", "Réponse bot 2 pour option 2 - Étape 1"]
+            "0": ["Merci ! Je peux te surprendre maintenant ;)", "Merci ! Je peux te surprendre maintenant ;)"],
+            "1": ["Pas ouf… mais je peux te surprendre si tu restes ;)", "Pas ouf… mais je peux te surprendre si tu restes ;)"]
           }
         },
         {
-          "userOptions": ["Option utilisateur 1 - Étape 2", "Option utilisateur 2 - Étape 2"],
+          "userOptions": ["Ok, je reste, montre-moi !", "Oulaaa, t’es génant."],
           "botResponses": {
-            "0": ["Réponse bot 1 pour option 1 - Étape 2", "Réponse bot 2 pour option 1 - Étape 2"],
-            "1": ["Réponse bot 1 pour option 2 - Étape 2", "Réponse bot 2 pour option 2 - Étape 2"]
+            "0": ["Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?", "Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?"],
+            "1": ["Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?", "Tu pourrais voir mes vraies couleurs… ça te dit de me rejoindre ?"]
           }
         },
         {
-          "userOptions": ["Option utilisateur 1 - Étape 3", "Option utilisateur 2 - Étape 3"],
+          "userOptions": ["Ok, j’arrête de swiper et je te rejoins !", "Non, trop peur de l’ombre et de la lumière."],
           "botResponses": {
             "0": ["Réponse bot 1 pour option 1 - Étape 3", "Réponse bot 2 pour option 1 - Étape 3"],
             "1": ["Réponse bot 1 pour option 2 - Étape 3", "Réponse bot 2 pour option 2 - Étape 3"]
