@@ -79,6 +79,15 @@
     width: 80px;
     border-radius: 10px;
     border: 4px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.avatar:hover {
+    transform: scale(1.15);
+    border-color: #ff007b;
+    border-radius: 14px;
 }
 
 .selected{
