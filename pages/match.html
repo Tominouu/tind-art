@@ -11,13 +11,22 @@
     <link rel="stylesheet" href="../assets/css/messagerie.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    <style>
+        .match-image-scale {
+            transform: scale(0.2);
+            transition: transform 2.0s ease-out;
+        }
+        .match-image-scale.animate {
+            transform: scale(1);
+        }
+    </style>
 
 </head>
 <body>
 <div class="content-center">
     <div style="position: relative; display: inline-block;">
         <div id="lottie-animation" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 390px; z-index: 1; pointer-events: none;"></div>
-        <img src="../assets/images/match_people.png" width="270" alt="Mary" style="position: relative; z-index: 2;">
+        <img id="match-image" class="match-image-scale" src="../assets/images/match_people.png" width="270" alt="Mary" style="position: relative; z-index: 2;">
     </div>
 
     <h1>MATCH !</h1>
@@ -25,14 +34,23 @@
 
 </div>
 <script>
-    // Initialiser l'animation Lottie
-    const animationContainer = document.getElementById('lottie-animation');
-    const animation = lottie.loadAnimation({
-        container: animationContainer,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '../assets/data/match_screen.json'
+    window.addEventListener('load', function() {
+        const animationContainer = document.getElementById('lottie-animation');
+        const matchImage = document.getElementById('match-image');
+        
+        // Initialiser l'animation Lottie
+        const animation = lottie.loadAnimation({
+            container: animationContainer,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '../assets/data/match_screen.json'
+        });
+        
+        // Déclencher l'animation de scale en ajoutant la classe
+        setTimeout(function() {
+            matchImage.classList.add('animate');
+        }, 50);
     });
 </script>
 </body>
