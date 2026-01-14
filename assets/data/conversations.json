@@ -58,8 +58,57 @@
     {
       "contactName": "Dirck Van Baburen",
       "avatar": "/assets/images/Dirck_van_Baburen_pp.png",
-      "firstMessage": "Tché tarpin beau le sang",
-      "steps": []
+      "firstMessage": "Tu veux une bière ? Il va m’en falloir pour oublier ta tête.",
+      "steps": [
+        {
+          "userOptions": [
+            "Ouai, j’aimerais bien oublier ta tête aussi !",
+            "Mais non, t’es fou !"
+          ],
+          "botResponses": {
+            "0": [
+              "Ha ! J’aime bien les gens qui veulent s’amuser, tu veux une surprise ?",
+              "Ha ! J’aime bien les gens qui veulent s’amuser, tu veux une surprise ?"
+            ],
+            "1": [
+              "Je ne suis pas fou, je veux juste m’amuser un peu. Tu veux une surprise ?",
+              "Je ne suis pas fou, je veux juste m’amuser un peu. Tu veux une surprise ?"
+            ]
+          }
+        },
+        {
+          "userOptions": [
+            "Aller, surprends moi !",
+            "Oula, arrêtes toi là !"
+          ],
+          "botResponses": {
+            "0": [
+              "Si tu veux la plus belle des surprises, rejoins-moi, elle est plus belle en vrai !",
+              "Si tu veux la plus belle des surprises, rejoins-moi, elle est plus belle en vrai !"
+            ],
+            "1": [
+              "Si tu veux la plus belle des surprises, rejoins-moi, elle est plus belle en vrai !",
+              "Si tu veux la plus belle des surprises, rejoins-moi, elle est plus belle en vrai !"
+            ]
+          }
+        },
+        {
+          "userOptions": [
+            "Allez, tu m’as chauffé là !",
+            "Non, t’es fou !"
+          ],
+          "botResponses": {
+            "0": [
+              "…",
+              "…"
+            ],
+            "1": [
+              "…",
+              "…"
+            ]
+          }
+        }
+      ]
     },
     {
       "contactName": "Giovanni Do",
