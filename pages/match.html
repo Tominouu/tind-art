@@ -30,7 +30,7 @@
     </div>
 
     <h1>MATCH !</h1>
-    <a href="/pages/conversation.html?contact=Paul%20Cezanne" class="startButton " style="position: relative; z-index: 10;">Parlons ensemble !</a>
+    <a id="conversation-link" href="#" class="startButton " style="position: relative; z-index: 10;">Parlons ensemble !</a>
 
 </div>
 <script>
@@ -47,12 +47,31 @@
             'Pedro de Moya': 'match_pedro.png'
         };
 
+        // Mapping des noms de profils vers les noms utilisés dans les URLs de conversation
+        const conversationNameMap = {
+            'Luca Giordano': 'Luca Giordano',
+            'Dirck Van Baburen': 'Dirck Van Baburen',
+            'Bartolomé Esteban': 'Bartolome Esteban', // Sans accent pour l'URL
+            'Trophime Bigot': 'Trophime Bigot',
+            'Pedro de Moya': 'Pedro de Moya'
+        };
+
         // Récupérer le nom du profil matché depuis localStorage
         const matchedProfileName = localStorage.getItem('matchedProfileName');
+        const conversationLink = document.getElementById('conversation-link');
         
         // Charger l'image correspondante si disponible, sinon utiliser l'image par défaut
         if (matchedProfileName && matchImageMap[matchedProfileName]) {
             matchImage.src = `../assets/images/match/${matchImageMap[matchedProfileName]}`;
+        }
+
+        // Mettre à jour le lien vers la conversation
+        if (matchedProfileName && conversationNameMap[matchedProfileName]) {
+            const conversationName = encodeURIComponent(conversationNameMap[matchedProfileName]);
+            conversationLink.href = `conversation.html?contact=${conversationName}`;
+        } else {
+            // Par défaut, rediriger vers la messagerie si le nom n'est pas trouvé
+            conversationLink.href = 'messagerie.html';
         }
 
         // Initialiser l'animation Lottie
