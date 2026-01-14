@@ -124,10 +124,6 @@ function loadNextCard() {
     currentIndex++;
 }
 
-
-/* =========================
-   ✅ SWIPE CORRIGÉ ICI
-========================= */
 function addSwipe(card) {
     let startX = 0;
     let startY = 0;
