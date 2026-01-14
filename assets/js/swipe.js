@@ -267,7 +267,7 @@ function showMatch(profile) {
     console.log(`💖 MATCH avec ${profile.name}`);
     setTimeout(() => {
         document.location.href = "/pages/match.html";
-    }, 5000);
+    }, 500);
 }
 
 
