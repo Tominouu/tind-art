@@ -194,11 +194,7 @@ body.no-scroll {
     will-change: transform, opacity;
 }
 
-/* image longue */
-.card-info img {
-    width: 100%;
-    display: block;
-}
+
 
 /* poignée visuelle */
 .card-info::before {
@@ -263,4 +259,79 @@ body.no-scroll {
     font-size: 19px;
     font-weight: bold;
 }
+
+.description {
+    padding-top: 16px;
+    padding-left: 24px;
+    font-size: 22px;
+}
+
+.description-text {
+    font-size: 18px;
+    padding-top: 16px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 20px;
+}
+
+.red-flag-title{
+    display: flex;
+    flex-direction: row;
+    padding-left: 24px;
+    font-size: 22px;
+}
+
+.red-flag-icon{
+    width: 26px;
+    height: 26px;
+    margin-right: 8px;
+}
+
+.red-flag-row {
+    display: flex;
+    gap: 8px;
+    padding-left: 24px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.red-flag-tag{
+    color: white;
+    background: #FF6B6B;
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.green-flag-title{
+    display: flex;
+    flex-direction: row;
+    padding-left: 24px;
+    font-size: 22px;
+}
+
+.green-flag-icon{
+    width: 26px;
+    height: 26px;
+    margin-right: 8px;
+}
+
+.green-flag-row {
+    display: flex;
+    gap: 8px;
+    padding-left: 24px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.green-flag-tag{
+    color: white;
+    background: #4FCD94;
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 

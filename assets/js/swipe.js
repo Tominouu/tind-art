@@ -7,22 +7,22 @@ if (avatarChoisi && avatarImg) {
 
 
 const baseProfiles = [
-    { id: 1, name: "Luca", image: "../assets/images/luca.png", infoImage: "../assets/images/description-luca.png", matchable: true },
-    { id: 2, name: "Dirck", image: "../assets/images/dirck.png", infoImage: "../assets/images/description-dirck.png", matchable: true },
-    { id: 3, name: "Art mystère", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png",  matchable: true },
-    { id: 4, name: "Emma", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: true },
-    { id: 5, name: "Lucas", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: true },
-    { id: 6, name: "Nina", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: true },
+    { id: 1, name: "Dirck Van Baburen", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-luca.png", matchable: true, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 2, name: "Dirck", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable:  true, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 3, name: "Art mystère", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png",  matchable:  true, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 4, name: "Emma", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: true, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 5, name: "Lucas", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: true, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 6, name: "Nina", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: true, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
 
-    { id: 7, name: "Paul", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
-    { id: 8, name: "Leo", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
-    { id: 9, name: "Maya", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
-    { id: 10, name: "Hugo", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
-    { id: 11, name: "Anna", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
-    { id: 12, name: "Noah", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
-    { id: 13, name: "Jade", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
-    { id: 14, name: "Eva", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false },
-    { id: 15, name: "Tom", image: "../assets/images/card.svg", infoImage: "../assets/images/description-dirck.png", matchable: false }
+    { id: 7, name: "Paul", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 8, name: "Leo", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" , image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 9, name: "Maya", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 10, name: "Hugo", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 11, name: "Anna", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 12, name: "Noah", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 13, name: "Jade", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 14, name: "Eva", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 15, name: "Tom", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
 ];
 
 
@@ -73,10 +73,32 @@ function createCard(data) {
     const card = document.createElement('article');
     card.className = 'card';
     card.style.backgroundImage = `url(${data.image})`;
+    
 
     card.innerHTML = `
         <img src="../assets/images/like-overlay.svg" alt="Logo" class="overlay like-overlay"></img>
         <img src="../assets/images/nope-overlay.svg" alt="Logo" class="overlay nope-overlay"></img>
+
+        <div class="infos">
+            <div class="title-row">
+                <h2>${data.name}</h2>
+                <span class="type">${data.type}</span>
+            </div>
+            <div class="location-row">
+                <img src="../assets/images/location-icon.svg" alt="Location Icon" class="location-icon">
+                <span class="location-text">${data.ville}</span>
+                <img src="../assets/images/age-icon.svg" alt="Age Icon" class="age-icon">
+                <span class="age-text">${data.age}</span>
+            </div>
+            <div class="tags-row1">
+                <span class="tag">${data.tag1}</span>
+                <span class="tag">${data.tag2}</span>
+            </div>
+            <div class="tags-row2">
+                <span class="tag">${data.tag3}</span>
+                <span class="tag">${data.tag4}</span>
+            </div>
+        </div>
 
         <div class="choices">
             <button class="choice-btn nope">
@@ -90,7 +112,28 @@ function createCard(data) {
         </div>
 
         <div class="card-info">
-            <img src="${data.infoImage}" alt="Description ${data.name}">
+            <div class="description">
+                <h2>Description</h2>
+            </div>
+            <div class="description-text">
+                <p>${data.infoText}</p>
+            </div>
+            <div class="red-flag-title">
+                <img src="../assets/images/red-flag-icon.svg" alt="Red Flag Icon" class="red-flag-icon">
+                <h3>RED FLAGS</h3>
+            </div>
+            <div class="red-flag-row">
+                <span class="red-flag-tag">${data.redflag1}</span>
+                <span class="red-flag-tag">${data.redflag2}</span>
+            </div>
+            <div class="green-flag-title">
+                <img src="../assets/images/green-flag-icon.svg" alt="Green Flag Icon" class="green-flag-icon">
+                <h3>GREEN FLAGS</h3>
+            </div>
+            <div class="green-flag-row">
+                <span class="green-flag-tag">${data.greenflag1}</span>
+                <span class="green-flag-tag">${data.greenflag2}</span>
+            </div>
         </div>
     `;
 
