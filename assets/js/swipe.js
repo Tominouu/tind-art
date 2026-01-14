@@ -304,6 +304,9 @@ function checkMatch() {
 
 function showMatch(profile) {
     console.log(`💖 MATCH avec ${profile.name}`);
+    // Sauvegarder l'ID du profil matché pour l'utiliser dans match.html
+    localStorage.setItem('matchedProfileId', profile.id);
+    localStorage.setItem('matchedProfileName', profile.name);
     setTimeout(() => {
         document.location.href = "/pages/match.html";
     }, 500);

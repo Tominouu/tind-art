@@ -26,7 +26,7 @@
 <div class="content-center">
     <div style="position: relative; display: inline-block;">
         <div id="lottie-animation" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 390px; z-index: 1; pointer-events: none;"></div>
-        <img id="match-image" class="match-image-scale" src="../assets/images/match_people.png" width="270" alt="Mary" style="position: relative; z-index: 2;">
+        <img id="match-image" class="match-image-scale" src="../assets/images/match_people.png" width="270" alt="Match" style="position: relative; z-index: 2;">
     </div>
 
     <h1>MATCH !</h1>
@@ -37,6 +37,23 @@
     window.addEventListener('load', function() {
         const animationContainer = document.getElementById('lottie-animation');
         const matchImage = document.getElementById('match-image');
+
+        // Mapping des noms de profils vers les images de match
+        const matchImageMap = {
+            'Luca Giordano': 'match_luca.png',
+            'Dirck Van Baburen': 'match_baburen.png',
+            'Bartolomé Esteban': 'match_bartolome.png',
+            'Trophime Bigot': 'match_trophime.png',
+            'Pedro de Moya': 'match_pedro.png'
+        };
+
+        // Récupérer le nom du profil matché depuis localStorage
+        const matchedProfileName = localStorage.getItem('matchedProfileName');
+        
+        // Charger l'image correspondante si disponible, sinon utiliser l'image par défaut
+        if (matchedProfileName && matchImageMap[matchedProfileName]) {
+            matchImage.src = `../assets/images/match/${matchImageMap[matchedProfileName]}`;
+        }
 
         // Initialiser l'animation Lottie
         const animation = lottie.loadAnimation({
