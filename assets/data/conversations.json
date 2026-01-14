@@ -70,8 +70,57 @@
     {
       "contactName": "Bartolomé Esteban",
       "avatar": "/assets/images/Autorretrato_de_Murillo_pp.png",
-      "firstMessage": "Tché tarpin beau le sang",
-      "steps": []
+      "firstMessage": "Si t’étais une œuvre, y aurait un vigile juste pour m’empêcher de trop te fixer.",
+      "steps": [
+        {
+          "userOptions": [
+            "Pas besoin, j’aime bien quand tu me regardes !",
+            "T’as rêvé toi, arrêtes de me regarder."
+          ],
+          "botResponses": {
+            "0": [
+              "C’est gentil, t’y es un tigre ! Je peux te peindre ?",
+              "C’est gentil, t’y es un tigre ! Je peux te peindre ?"
+            ],
+            "1": [
+              "T’es trop belle, pas ma faute ! Je peux te peindre au moins ?",
+              "T’es trop belle, pas ma faute ! Je peux te peindre au moins ?"
+            ]
+          }
+        },
+        {
+          "userOptions": [
+            "T’y es le sang de la veine, bien sûr !",
+            "Toujours pas, t’es trop chelou !"
+          ],
+          "botResponses": {
+            "0": [
+              "Viens me voir alors pour que je puisse t’admirer.",
+              "Viens me voir alors pour que je puisse t’admirer."
+            ],
+            "1": [
+              "Viens me voir alors pour que je puisse t’admirer",
+              "Viens me voir alors pour que je puisse t’admirer"
+            ]
+          }
+        },
+        {
+          "userOptions": [
+            "Vasy, je pourrais voir ta beauté !",
+            "Jamais de la vie !"
+          ],
+          "botResponses": {
+            "0": [
+              "Alors viens, tu verras la lumière autrement…",
+              "Alors viens, tu verras la lumière autrement…"
+            ],
+            "1": [
+              "La peur fait partie de l’art.",
+              "La peur fait partie de l’art."
+            ]
+          }
+        }
+      ]
     },
     {
       "contactName": "Trophime Bigot",
