@@ -19,33 +19,85 @@
             padding: 20px;
         }
 
-        #photo-affichee {
-            max-width: 100%;
-            max-height: 70vh;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .message-photo {
-            text-align: center;
-            color: #666;
-            font-size: 18px;
-        }
 
         .no-photo-message {
             text-align: center;
             color: #ff007b;
             padding: 20px;
         }
+
+        .frame-container {
+            position: relative;
+            width: 200px;
+            height: 231px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .frame {
+            position: absolute;
+            width: 200px;
+            height: 231px;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        #photo-display {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 231px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #photo-affichee {
+            width: 190px;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .message-photo {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .amour-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .heart-icon {
+            position: absolute;
+            width: 80px;
+            height: auto;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
+
 <div class="content-center">
+    <img src="../assets/images/Logo_tindart.svg" alt="Logo Tind'Art" class="logo-end">
+
     <div class="photo-container">
-        <h2>Votre photo</h2>
-        <div id="photo-display">
-            <!-- La photo sera affichée ici -->
+        <div class="frame-container">
+            <img src="../assets/images/carde-en-bois.png" alt="Cadre en bois" class="frame">
+            <div id="photo-display">
+            </div>
         </div>
+        <p class="message-photo">Bravo tu as trouvé l'<span class="amour-container"><img src="../assets/images/heart_border.svg" alt="Cœur" class="heart-icon"><span>amour</span></span> !</p>
     </div>
 </div>
 
@@ -63,11 +115,6 @@
             img.alt = 'Photo capturée';
             photoDisplay.appendChild(img);
 
-            // Ajouter un message
-            const message = document.createElement('p');
-            message.className = 'message-photo';
-            message.textContent = 'Photo capturée avec succès !';
-            photoDisplay.appendChild(message);
         } else {
             // Afficher un message si aucune photo n'est disponible
             const noPhotoMessage = document.createElement('p');

@@ -87,6 +87,11 @@ main {
     width: 300px;
 }
 
+.logo-end {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
 .logo-header {
     width: 150px;
 }
