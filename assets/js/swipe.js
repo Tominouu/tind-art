@@ -162,6 +162,8 @@ function loadNextCard() {
 
     const card = createCard(cardsData[currentIndex]);
     card.style.zIndex = 10 - currentIndex;
+    // Stocker l'index du profil dans la carte pour pouvoir l'identifier lors du swipe
+    card.dataset.profileIndex = currentIndex;
     cardStack.appendChild(card);
 
     currentIndex++;
@@ -276,7 +278,8 @@ function swipe(card, direction) {
     nopeOverlay.style.opacity = direction === 'left' ? 1 : 0;
 
     if (direction === 'right') {
-        checkMatch();
+        // Passer la carte pour identifier le bon profil
+        checkMatch(card);
     }
 
     card.style.transition = 'transform 0.3s ease';
@@ -290,11 +293,15 @@ function swipe(card, direction) {
 
 
 
-function checkMatch() {
-    const profile = cardsData[currentIndex - 1];
+function checkMatch(card) {
+    // Utiliser l'index stocké dans la carte pour obtenir le bon profil
+    const profileIndex = parseInt(card.dataset.profileIndex);
+    const profile = cardsData[profileIndex];
 
-    if (!profile.matchable) {
-        console.log(`❌ ${profile.name} → hors salle`);
+    if (!profile || !profile.matchable) {
+        if (profile) {
+            console.log(`❌ ${profile.name} → hors salle`);
+        }
         return;
     }
 
