@@ -90,15 +90,62 @@ body.no-scroll {
 }
 
 .choice-btn {
+    position: relative;
+    width: 80px;
+    height: 80px;
     background: none;
     border: none;
-    cursor: pointer;
 }
 
 .choice-btn img {
-    width: 80px;
-    transition: transform 0.2s ease;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0.85);
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
 }
+
+/* état normal */
+.choice-btn .like,
+.choice-btn .next {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card.is-like .choice-btn.like .like {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.card.is-like .choice-btn.like .like-after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card.is-like .choice-btn.nope .next {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.card.is-nope .choice-btn.nope .next {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.card.is-nope .choice-btn.like .like {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.card.is-nope .choice-btn.nope .next-after {
+    opacity: 1;
+    transform: scale(1);
+}
+
 
 .choice-btn:active img {
     transform: scale(0.9);
@@ -108,10 +155,8 @@ body.no-scroll {
     position: absolute;
     top: 24px;
     padding: 8px 16px;
-    border: 4px solid;
     font-size: 32px;
     font-weight: 700;
-    border-radius: 8px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.1s ease;
@@ -119,16 +164,14 @@ body.no-scroll {
 
 .like-overlay {
     left: 24px;
-    color: #27ae60;
-    border-color: #27ae60;
     transform: rotate(-15deg);
+    width: 100px;
 }
 
 .nope-overlay {
     right: 24px;
-    color: #e74c3c;
-    border-color: #e74c3c;
     transform: rotate(15deg);
+    width: 88px;
 }
 
 .card-info {
