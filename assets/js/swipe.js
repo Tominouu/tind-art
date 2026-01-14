@@ -2,7 +2,7 @@ const avatarChoisi = localStorage.getItem('avatar');
 const avatarImg = document.getElementById('avatar-selected');
 
 if (avatarChoisi && avatarImg) {
-    avatarImg.src = `../assets/images/card/${avatarChoisi}.jpg`;
+    avatarImg.src = `../assets/images/${avatarChoisi}.jpg`;
 }
 
 
@@ -19,10 +19,10 @@ const baseProfiles = [
     { id: 9, name: "Dan Antonio", type: "Relation long terme", ville: "Mexico", age: "39 ans", tag1: "Cuisine", tag2: "Écriture", tag3: "Randonnée", tag4: "Café" ,image: "../assets/images/card/antonio_card.png", infoText: "Mexicain, calme en apparence, intense quand il faut. J’aime les choses simples bien faites : un bon repas, une discussion honnête, et un plan qui ne cherche pas à impressionner. Pas là pour jouer un rôle, juste pour rencontrer quelqu’un de vrai.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Têtu(e)", redflag2: "Drama", greenflag1: "Authenticité", greenflag2: "Communication" },
     { id: 10, name: "Vanessa Herbault", type: "Coup d'un soir", ville: "Cenon", age: "26 ans", tag1: "Brunchs", tag2: "Voyages", tag3: "Esthétique", tag4: "Art" ,image: "../assets/images/card/vanessa_card.png", infoText: "Je sais ce que je veux et ce que je ne veux pas. J’aime le confort, l’élégance et les hommes qui savent prendre les choses en main. Les relations simples ne m’intéressent pas, je préfère quelqu’un d’ambitieux, généreux et sûr de lui.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "50/50", redflag2: "Simple", greenflag1: "Aisé(e)", greenflag2: "Vespa" },
     { id: 11, name: "Grug Bort", type: "Relation long terme", ville: "Alger", age: "24 215 ans", tag1: "Viande", tag2: "Cueillette", tag3: "Chasse", tag4: "Mammouths" ,image: "../assets/images/card/grug_bort_card.png", infoText: "J’aime courir après les mammouths le samedi matin avec mes amis. J’aime mon steak bien cuit avec quelques baies des forêts. J’aime courir, sauter, ramper. Toujours à la recherche de nouvelles aventures.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Végétarien(ne)", redflag2: "Méchant(e)", greenflag1: "Pyromane", greenflag2: "Chasseur(euse)" },
-    { id: 12, name: "Noah", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
-    { id: 13, name: "Jade", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
-    { id: 14, name: "Eva", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
-    { id: 15, name: "Tom", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card/card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 12, name: "Noah", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card/mathieu_zylow.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 13, name: "Jade", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card/mathieu_zylow.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 14, name: "Eva", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card/mathieu_zylow.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
+    { id: 15, name: "Tom", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card/mathieu_zylow.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
 ];
 
 
@@ -76,8 +76,8 @@ function createCard(data) {
 
 
     card.innerHTML = `
-        <img src="../assets/images/card/like-overlay.svg" alt="Logo" class="overlay like-overlay"></img>
-        <img src="../assets/images/card/nope-overlay.svg" alt="Logo" class="overlay nope-overlay"></img>
+        <img src="../assets/images/like-overlay.svg" alt="Logo" class="overlay like-overlay"></img>
+        <img src="../assets/images/nope-overlay.svg" alt="Logo" class="overlay nope-overlay"></img>
 
         <div class="infos">
             <div class="title-row">
@@ -85,9 +85,9 @@ function createCard(data) {
                 <span class="type">${data.type}</span>
             </div>
             <div class="location-row">
-                <img src="../assets/images/card/location-icon.svg" alt="Location Icon" class="location-icon">
+                <img src="../assets/images/location-icon.svg" alt="Location Icon" class="location-icon">
                 <span class="location-text">${data.ville}</span>
-                <img src="../assets/images/card/age-icon.svg" alt="Age Icon" class="age-icon">
+                <img src="../assets/images/age-icon.svg" alt="Age Icon" class="age-icon">
                 <span class="age-text">${data.age}</span>
             </div>
             <div class="tags-row1">
@@ -102,12 +102,12 @@ function createCard(data) {
 
         <div class="choices">
             <button class="choice-btn nope">
-                <img src="../assets/images/card/next.svg" class="next" alt="Passer Before">
-                <img src="../assets/images/card/next-after.svg" class="next-after" alt="Passer After">
+                <img src="../assets/images/next.svg" class="next" alt="Passer Before">
+                <img src="../assets/images/next-after.svg" class="next-after" alt="Passer After">
             </button>
             <button class="choice-btn like">
-                <img src="../assets/images/card/like.svg" class="like" alt="Aimer Before">
-                <img src="../assets/images/card/like-after.svg" class="like-after" alt="Aimer After">
+                <img src="../assets/images/like.svg" class="like" alt="Aimer Before">
+                <img src="../assets/images/like-after.svg" class="like-after" alt="Aimer After">
             </button>
         </div>
 
@@ -119,7 +119,7 @@ function createCard(data) {
                 <p>${data.infoText}</p>
             </div>
             <div class="red-flag-title">
-                <img src="../assets/images/card/red-flag-icon.svg" alt="Red Flag Icon" class="red-flag-icon">
+                <img src="../assets/images/red-flag-icon.svg" alt="Red Flag Icon" class="red-flag-icon">
                 <h3>RED FLAGS</h3>
             </div>
             <div class="red-flag-row">
@@ -127,7 +127,7 @@ function createCard(data) {
                 <span class="red-flag-tag">${data.redflag2}</span>
             </div>
             <div class="green-flag-title">
-                <img src="../assets/images/card/green-flag-icon.svg" alt="Green Flag Icon" class="green-flag-icon">
+                <img src="../assets/images/green-flag-icon.svg" alt="Green Flag Icon" class="green-flag-icon">
                 <h3>GREEN FLAGS</h3>
             </div>
             <div class="green-flag-row">
