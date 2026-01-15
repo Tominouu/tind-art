@@ -143,6 +143,17 @@
             display: flex;
         }
 
+        .skip img {
+            width: 120px;
+            height: auto;
+        }
+
+        .skip {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
         /* Tablettes et plus */
         @media (min-width: 768px) {
             .camera-container {
@@ -207,6 +218,11 @@
 </head>
 <body>
 <div class="content-center" id="main-container">
+    <div class="skip">
+        <a href="end-2.html">
+          <img src="../assets/images/SKIP.png" alt="">
+        </a>
+    </div>
     <div class="initial-content">
         <img src="../assets/images/take-photo.png" width="100" alt="Mary">
         <div class="photo-banner">
