@@ -341,7 +341,7 @@ function addInfoPanelDrag(card) {
     let dragging = false;
 
     const CLOSED = 90;
-    const OPEN = 25;
+    const OPEN = 30.90;
 
     panel.addEventListener('touchstart', start);
     panel.addEventListener('touchmove', move);
