@@ -132,23 +132,37 @@ function handleOptionClick(e) {
     const current = conversationData.responses[conversationData.currentStep];
     addMessage(current.userOptions[index], false);
     updateLastBubble();
-    // Vérifier si c'est le dernier échange (step 3, index 2)
     const isLastExchange = conversationData.currentStep === conversationData.responses.length - 1;
-    if (isLastExchange) {
-        // C'est le dernier échange, rediriger directement après le message utilisateur
+    if (isLastExchange && index === 1) {
         chooseContainer.innerHTML = '';
         setTimeout(() => {
-            window.location.href = 'date.html';
-        }, 1000); // Délai de 1 seconde avant la redirection
+            window.location.href = 'swipe.html';
+        }, 500);
         return;
     }
-    // Sinon, continuer avec la réponse du bot
+    if (isLastExchange) {
+        chooseContainer.innerHTML = '';
+        showWaitingMessage();
+        showTypingBubble();
+        const delay = Math.floor(Math.random() * 2000) + 2000;
+        setTimeout(() => {
+            removeTypingBubble();
+            const botResponses = current.botResponses[0];
+            const randomBotResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
+            addMessage(randomBotResponse, true);
+            updateLastBubble();
+            setTimeout(() => {
+                window.location.href = 'date.html';
+            }, 1000);
+        }, delay);
+        return;
+    }
     showWaitingMessage();
     showTypingBubble();
     const delay = Math.floor(Math.random() * 2000) + 2000;
     setTimeout(() => {
         removeTypingBubble();
-        const botResponses = current.botResponses[index];
+        const botResponses = current.botResponses[0];
         const randomBotResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
         addMessage(randomBotResponse, true);
         updateLastBubble();
