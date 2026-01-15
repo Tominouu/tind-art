@@ -29,9 +29,34 @@
     <a href="photo.html" class="startButton " style="position: relative; z-index: 10;">RDV : Peinture 1</a>
 </div>
 <script>
+    // Mapping des noms de contacts vers les noms de fichiers d'images
+    const contactImageMap = {
+        'Luca Giordano': 'date_luca.png',
+        'Dirck Van Baburen': 'date_baburen.png',
+        'Bartolome Esteban': 'date_bartolome.png',
+        'Trophime Bigot': 'date_trophime.png',
+        'Pedro de Moya': 'date_pedro.png'
+    };
+
+    function getContactNameFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('contact') || 'Luca Giordano'; // Par défaut
+    }
+
+    function getDateImagePath(contactName) {
+        const imageName = contactImageMap[contactName] || 'date_luca.png';
+        return `../assets/images/date/${imageName}`;
+    }
+
     window.addEventListener('load', function() {
         const animationContainer = document.getElementById('lottie-animation');
         const dateImage = document.getElementById('date-image');
+        
+        // Récupérer le nom du contact depuis l'URL et mettre à jour l'image
+        const contactName = getContactNameFromURL();
+        const imagePath = getDateImagePath(contactName);
+        dateImage.src = imagePath;
+        dateImage.alt = contactName;
 
         // Initialiser l'animation Lottie
         const animation = lottie.loadAnimation({

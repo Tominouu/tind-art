@@ -79,8 +79,9 @@ function updateOptions() {
         chooseContainer.innerHTML = '';
         updateLastBubble();
         // Navigation automatique vers date.html à la fin de la conversation
+        const contactName = getContactNameFromURL();
         setTimeout(() => {
-            window.location.href = 'date.html';
+            window.location.href = `date.html?contact=${encodeURIComponent(contactName)}`;
         }, 1000); // Délai de 1 seconde avant la redirection
         return;
     }
@@ -151,8 +152,9 @@ function handleOptionClick(e) {
             const randomBotResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
             addMessage(randomBotResponse, true);
             updateLastBubble();
+            const contactName = getContactNameFromURL();
             setTimeout(() => {
-                window.location.href = 'date.html';
+                window.location.href = `date.html?contact=${encodeURIComponent(contactName)}`;
             }, 1000);
         }, delay);
         return;
