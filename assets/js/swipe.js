@@ -135,7 +135,7 @@ function createCard(data) {
 function loadNextCard() {
     if (currentIndex >= cardsData.length) return;
     const card = createCard(cardsData[currentIndex]);
-    card.style.zIndex = 10 - currentIndex;
+    card.style.zIndex = cardsData.length - currentIndex;
     // Stocker l'index du profil dans la carte pour pouvoir l'identifier lors du swipe
     card.dataset.profileIndex = currentIndex;
     cardStack.appendChild(card);
