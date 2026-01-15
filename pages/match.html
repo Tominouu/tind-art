@@ -32,13 +32,16 @@
     window.addEventListener('load', function() {
         const animationContainer = document.getElementById('lottie-animation');
         const matchImage = document.getElementById('match-image');
-        const matchImageMap = {
-            'Luca Giordano': 'match_luca.png',
-            'Dirck Van Baburen': 'match_baburen.png',
-            'Bartolomé Esteban': 'match_bartolome.png',
-            'Trophime Bigot': 'match_trophime.png',
-            'Pedro de Moya': 'match_pedro.png'
+        
+        // Mapping des noms de profils vers les identifiants utilisés dans les noms de fichiers
+        const profileNameToId = {
+            'Luca Giordano': 'luca',
+            'Dirck Van Baburen': 'baburen',
+            'Bartolomé Esteban': 'bartolome',
+            'Trophime Bigot': 'trophime',
+            'Pedro de Moya': 'pedro'
         };
+        
         const conversationNameMap = {
             'Luca Giordano': 'Luca Giordano',
             'Dirck Van Baburen': 'Dirck Van Baburen',
@@ -46,11 +49,32 @@
             'Trophime Bigot': 'Trophime Bigot',
             'Pedro de Moya': 'Pedro de Moya'
         };
+        
         const matchedProfileName = localStorage.getItem('matchedProfileName');
+        const avatarChoisi = localStorage.getItem('avatar');
         const conversationLink = document.getElementById('conversation-link');
-        if (matchedProfileName && matchImageMap[matchedProfileName]) {
-            matchImage.src = `../assets/images/match/${matchImageMap[matchedProfileName]}`;
+        
+        // Déterminer l'image de match selon l'avatar et le profil matché
+        if (matchedProfileName && avatarChoisi && profileNameToId[matchedProfileName]) {
+            const profileId = profileNameToId[matchedProfileName];
+            let imageFileName;
+            
+            if (avatarChoisi === 'avatar_men') {
+                imageFileName = `men_match_${profileId}.png`;
+            } else if (avatarChoisi === 'avatar_women') {
+                // Note: pour Luca, le fichier est "woman_match_luca.png" (singulier)
+                if (profileId === 'luca') {
+                    imageFileName = 'woman_match_luca.png';
+                } else {
+                    imageFileName = `women_match_${profileId}.png`;
+                }
+            }
+            
+            if (imageFileName) {
+                matchImage.src = `../assets/images/match/${imageFileName}`;
+            }
         }
+        
         if (matchedProfileName && conversationNameMap[matchedProfileName]) {
             const conversationName = encodeURIComponent(conversationNameMap[matchedProfileName]);
             conversationLink.href = `conversation.html?contact=${conversationName}`;
