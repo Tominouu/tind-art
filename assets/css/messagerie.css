@@ -45,7 +45,6 @@ main {
 
 }
 
-
 .content-center {
     display: flex;
     flex-direction: column;
@@ -55,7 +54,6 @@ main {
     height: 100vh;
     position: relative;
 }
-
 
 .logo-titre {
     display: flex;
@@ -135,7 +133,6 @@ main {
     margin-bottom: 30px;
 }
 
-
 .title-container-conversation {
     display: flex;
     align-items: center;
@@ -176,7 +173,6 @@ h1 {
     margin-bottom: 15px;
     margin-top: 15px;
 }
-
 
 .discussion {
     margin: 20px 20px;
@@ -231,13 +227,11 @@ h1 {
     border-top-right-radius: 0.1em;
 }
 
-
 .choose-conversation {
     background-color: #ff007b;
     border-radius: 10px;
     padding: 5px 20px;
 }
-
 
 .choose-container {
     display: flex;
@@ -246,7 +240,6 @@ h1 {
     align-items: center;
     gap: 20px;
 }
-
 
 .photo-banner {
     background-color: #FFF0F6;

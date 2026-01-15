@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="manifest" href="/manifest.webmanifest">
     <meta name="theme-color" content="#FFF0F6">
-
     <title>The end</title>
     <link rel="stylesheet" href="../assets/css/messagerie.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
@@ -18,7 +16,6 @@
             gap: 20px;
             padding: 20px;
         }
-
 
         .no-photo-message {
             text-align: center;
@@ -87,10 +84,8 @@
     </style>
 </head>
 <body>
-
 <div class="content-center">
     <img src="../assets/images/Logo_tindart.svg" alt="Logo Tind'Art" class="logo-end">
-
     <div class="photo-container">
         <div class="frame-container">
             <img src="../assets/images/carde-en-bois.png" alt="Cadre en bois" class="frame">
@@ -100,7 +95,6 @@
         <p class="message-photo">Bravo tu as trouvé l'<span class="amour-container"><img src="../assets/images/heart_border.svg" alt="Cœur" class="heart-icon"><span>amour</span></span> !</p>
     </div>
 </div>
-
 <script>
     // Récupérer la photo depuis localStorage
     document.addEventListener('DOMContentLoaded', () => {
@@ -114,7 +108,6 @@
             img.src = photoData;
             img.alt = 'Photo capturée';
             photoDisplay.appendChild(img);
-
         } else {
             // Afficher un message si aucune photo n'est disponible
             const noPhotoMessage = document.createElement('p');

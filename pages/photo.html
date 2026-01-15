@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="manifest" href="/manifest.webmanifest">
     <meta name="theme-color" content="#FFF0F6">
-
     <title>Prend une photo !</title>
     <link rel="stylesheet" href="../assets/css/messagerie.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
@@ -209,7 +207,6 @@
 </head>
 <body>
 <div class="content-center" id="main-container">
-    <!-- Contenu initial -->
     <div class="initial-content">
         <img src="../assets/images/take-photo.png" width="100" alt="Mary">
         <div class="photo-banner">
@@ -217,17 +214,11 @@
             <button id="acceder-camera-btn" class="startButton">Accéder à la caméra</button>
         </div>
     </div>
-
-    <!-- Message d'erreur -->
     <div id="error-message"></div>
-
-    <!-- Container pour la caméra -->
     <div class="camera-container">
         <div class="video-wrapper">
             <video id="video" autoplay playsinline></video>
         </div>
-
-        <!-- Contrôles de capture -->
         <div id="camera-controls">
             <div class="button-group">
                 <button id="capturer-btn" class="capture-button">📷 Prendre la photo</button>
@@ -236,7 +227,6 @@
         </div>
     </div>
 </div>
-
 <script src="../assets/js/photo.js"></script>
 </body>
 </html>

@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="manifest" href="/manifest.webmanifest">
     <meta name="theme-color" content="#FFF0F6">
-
     <title>Match !</title>
     <link rel="stylesheet" href="../assets/css/messagerie.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
@@ -20,7 +18,6 @@
             transform: scale(1);
         }
     </style>
-
 </head>
 <body>
 <div class="content-center">
@@ -28,17 +25,13 @@
         <div id="lottie-animation" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 390px; z-index: 1; pointer-events: none;"></div>
         <img id="match-image" class="match-image-scale" src="../assets/images/match_people.png" width="270" alt="Match" style="position: relative; z-index: 2;">
     </div>
-
     <h1>MATCH !</h1>
     <a id="conversation-link" href="#" class="startButton " style="position: relative; z-index: 10;">Parlons ensemble !</a>
-
 </div>
 <script>
     window.addEventListener('load', function() {
         const animationContainer = document.getElementById('lottie-animation');
         const matchImage = document.getElementById('match-image');
-
-        // Mapping des noms de profils vers les images de match
         const matchImageMap = {
             'Luca Giordano': 'match_luca.png',
             'Dirck Van Baburen': 'match_baburen.png',
@@ -46,35 +39,24 @@
             'Trophime Bigot': 'match_trophime.png',
             'Pedro de Moya': 'match_pedro.png'
         };
-
-        // Mapping des noms de profils vers les noms utilisés dans les URLs de conversation
         const conversationNameMap = {
             'Luca Giordano': 'Luca Giordano',
             'Dirck Van Baburen': 'Dirck Van Baburen',
-            'Bartolomé Esteban': 'Bartolome Esteban', // Sans accent pour l'URL
+            'Bartolomé Esteban': 'Bartolome Esteban',
             'Trophime Bigot': 'Trophime Bigot',
             'Pedro de Moya': 'Pedro de Moya'
         };
-
-        // Récupérer le nom du profil matché depuis localStorage
         const matchedProfileName = localStorage.getItem('matchedProfileName');
         const conversationLink = document.getElementById('conversation-link');
-        
-        // Charger l'image correspondante si disponible, sinon utiliser l'image par défaut
         if (matchedProfileName && matchImageMap[matchedProfileName]) {
             matchImage.src = `../assets/images/match/${matchImageMap[matchedProfileName]}`;
         }
-
-        // Mettre à jour le lien vers la conversation
         if (matchedProfileName && conversationNameMap[matchedProfileName]) {
             const conversationName = encodeURIComponent(conversationNameMap[matchedProfileName]);
             conversationLink.href = `conversation.html?contact=${conversationName}`;
         } else {
-            // Par défaut, rediriger vers la messagerie si le nom n'est pas trouvé
             conversationLink.href = 'messagerie.html';
         }
-
-        // Initialiser l'animation Lottie
         const animation = lottie.loadAnimation({
             container: animationContainer,
             renderer: 'svg',
@@ -82,8 +64,6 @@
             autoplay: true,
             path: '../assets/data/match_screen.json'
         });
-
-        // Déclencher l'animation de scale en ajoutant la classe
         setTimeout(function() {
             matchImage.classList.add('animate');
         }, 50);

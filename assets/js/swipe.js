@@ -5,7 +5,6 @@ if (avatarChoisi && avatarImg) {
     avatarImg.src = `../assets/images/${avatarChoisi}.jpg`;
 }
 
-
 const baseProfiles = [
     { id: 1, name: "Luca Giordano", type: "Coup d'un soir", ville: "Naples", age: "391 ans", tag1: "Cosplay de peintres", tag2: "Pasta", tag3: "Marathonien", tag4: "Café" ,image: "../assets/images/card/luca_giordano_card.png", infoText: "Je suis tellement rapide pour peindre que mes contemporains me surnomment « Luca Fa Presto », ce qui signifie en italien « Luca, il fait vite »", infoImage: "../assets/images/card/description-luca.png", matchable: true, redflag1: "2 de tension", redflag2: "Ponctuel(le)", greenflag1: "En avance", greenflag2: "Flash Mcqueen" },
     { id: 2, name: "Dirck Van Baburen", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card/van_baburen_card.png", infoText: "Je suis amoureux des fêtes bien remplies et surtout de la bière. Il me faut quelqu’un pour me raccompagner chez moi. On me surnomme “mouche à bière.”", infoImage: "../assets/images/card/description-dirck.png", matchable:  true, redflag1: "Bordélique", redflag2: "Introverti(e)", greenflag1: "Bon délire", greenflag2: "Hydraté(e)" },
@@ -13,7 +12,6 @@ const baseProfiles = [
     { id: 4, name: "Trophime Bigot", type: "Coup d'un soir", ville: "Arles", age: "446 ans", tag1: "Bougies", tag2: "Nuit", tag3: "Intimité", tag4: "Ombres chinoises" ,image: "../assets/images/card/trophime_bigot_card.png", infoText: "J’aime les ambiances intimistes, les soirées à la bougie et les visages qui émergent de l’ombre. On m’a longtemps pris pour quelqu’un d’autre, mais aujourd’hui je sais exactement qui je suis.", infoImage: "../assets/images/card/description-dirck.png", matchable: true, redflag1: "Narcoleptique", redflag2: "Peur du feu", greenflag1: "Pyromane", greenflag2: "Insomniaque" },
     { id: 5, name: "Pedro de Moya", type: "Relation long terme", ville: "Séville", age: "408 ans", tag1: "Voyage", tag2: "Religion", tag3: "Amour", tag4: "Vie" ,image: "../assets/images/card/pedro_de_mayo_card.png", infoText: "Si tu veux voyager, que ce soit à l’extérieur ou à l’intérieur, je suis ton âme sœur. Je saurai te faire voyager là où tu découvriras les pépites les plus inattendues.", infoImage: "../assets/images/card/description-dirck.png", matchable: true, redflag1: "Indécis(e)", redflag2: "Sédentaire", greenflag1: "Baroudeur(se)", greenflag2: "Attentionné(e)" },
     { id: 6, name: "Jean Durand", type: "Relation long terme", ville: "Lyon", age: "22 ans", tag1: "Les beaux-arts", tag2: "Gen Z", tag3: "PasDeBuzz", tag4: "Old Money" ,image: "../assets/images/card/jean_durand_card.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "0 Buzz", redflag2: "Introvertie", greenflag1: "Dopamine rapide", greenflag2: "Influenceur" },
-
     { id: 7, name: "Aïssa Koabil", type: "Relation court terme", ville: "Dakar", age: "52 ans", tag1: "Inachevé", tag2: "Éparpillé", tag3: "_", tag4: "Vision" ,image: "../assets/images/card/aissa_koabil_card.png", infoText: "Je commence toujours plein de tableaux et je n’en termine jamais aucun. Je passe plus de temps à imaginer ce que je pourrais faire qu’à finir ce que j’ai commencée.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Energie temporaire", redflag2: "Distrait", greenflag1: "Déphasé", greenflag2: "Procrastinateur" },
     { id: 8, name: "Mathieu Zylow", type: "Relation court terme", ville: "Brest", age: "27 ans", tag1: "Musique", tag2: "Aquarelle", tag3: "Guitare", tag4: "Mode" , image: "../assets/images/card/mathieu_zylow.png", infoText: "Guitare jamais loin, playlist toujours prête. Toujours minutieux sur le choix de mes vestes, mes peinture et le choix de mes accord (et encore plus pour la femme que j’aime). Si t’aimes la musique, et les discussions un peu profondes à 2h du mat, on devrait s’entendre.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Envahissant(e)", redflag2: "Rap", greenflag1: "Créatif", greenflag2: "À l’écoute" },
     { id: 9, name: "Dan Antonio", type: "Relation long terme", ville: "Mexico", age: "39 ans", tag1: "Cuisine", tag2: "Écriture", tag3: "Randonnée", tag4: "Café" ,image: "../assets/images/card/antonio_card.png", infoText: "Mexicain, calme en apparence, intense quand il faut. J’aime les choses simples bien faites : un bon repas, une discussion honnête, et un plan qui ne cherche pas à impressionner. Pas là pour jouer un rôle, juste pour rencontrer quelqu’un de vrai.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Têtu(e)", redflag2: "Drama", greenflag1: "Authenticité", greenflag2: "Communication" },
@@ -25,11 +23,9 @@ const baseProfiles = [
     { id: 15, name: "Tom", type: "Coup d'un soir", ville: "Naples", age: "430 ans", tag1: "Brasserie", tag2: "Malt de blé", tag3: "Fêtes", tag4: "Amusement" ,image: "../assets/images/card/mathieu_zylow.png", infoText: "Je n’ai pas de buzz et j’essaie de percer pour vivre de mon art. Je passe plus de temps à rêver de followers qu’à en avoir.", infoImage: "../assets/images/card/description-dirck.png", matchable: false, redflag1: "Pas de buzz", redflag2: "Artiste en galère", greenflag1: "Sympa", greenflag2: "Drôle" },
 ];
 
-
 function shuffle(array) {
     return [...array].sort(() => Math.random() - 0.5);
 }
-
 
 let cardsData = [];
 let currentIndex = 0;
@@ -37,48 +33,35 @@ let currentIndex = 0;
 function initGame() {
     const matchables = baseProfiles.filter(p => p.matchable);
     const nonMatchables = baseProfiles.filter(p => !p.matchable);
-
     if (nonMatchables.length < 2) {
         console.error("Il faut au moins 2 cartes non-matchables");
         return;
     }
-
     const shuffledNonMatchables = shuffle(nonMatchables);
-
     const firstCards = shuffledNonMatchables.slice(0, 2);
-
     const remainingCards = shuffle([
         ...shuffledNonMatchables.slice(2),
         ...matchables
     ]);
-
     cardsData = [...firstCards, ...remainingCards].map(profile => ({
         ...profile,
     }));
-
     currentIndex = 0;
 }
 
-
-
 const cardStack = document.getElementById('card-stack');
-
 
 initGame();
 loadNextCard();
 loadNextCard();
 
-
 function createCard(data) {
     const card = document.createElement('article');
     card.className = 'card';
     card.style.backgroundImage = `url(${data.image})`;
-
-
     card.innerHTML = `
         <img src="../assets/images/like-overlay.svg" alt="Logo" class="overlay like-overlay"></img>
         <img src="../assets/images/nope-overlay.svg" alt="Logo" class="overlay nope-overlay"></img>
-
         <div class="infos">
             <div class="title-row">
                 <h2>${data.name}</h2>
@@ -99,7 +82,6 @@ function createCard(data) {
                 <span class="tag">${data.tag4}</span>
             </div>
         </div>
-
         <div class="choices">
             <button class="choice-btn nope">
                 <img src="../assets/images/next.svg" class="next" alt="Passer Before">
@@ -110,7 +92,6 @@ function createCard(data) {
                 <img src="../assets/images/like-after.svg" class="like-after" alt="Aimer After">
             </button>
         </div>
-
         <div class="card-info">
             <div class="description">
                 <h2>Description</h2>
@@ -136,36 +117,28 @@ function createCard(data) {
             </div>
         </div>
     `;
-
     const likeBtn = card.querySelector('button.like');
     const nopeBtn = card.querySelector('button.nope');
-
     likeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         swipe(card, 'right');
     });
-
     nopeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         swipe(card, 'left');
     });
-
     addSwipe(card);
     addInfoPanelDrag(card);
     return card;
 }
 
-
-
 function loadNextCard() {
     if (currentIndex >= cardsData.length) return;
-
     const card = createCard(cardsData[currentIndex]);
     card.style.zIndex = 10 - currentIndex;
     // Stocker l'index du profil dans la carte pour pouvoir l'identifier lors du swipe
     card.dataset.profileIndex = currentIndex;
     cardStack.appendChild(card);
-
     currentIndex++;
 }
 
@@ -175,55 +148,41 @@ function addSwipe(card) {
     let currentX = 0;
     let dragging = false;
     let lockedAxis = null;
-
     const threshold = 100;
     const LOCK_DISTANCE = 12;
-
     const likeOverlay = card.querySelector('.like-overlay');
     const nopeOverlay = card.querySelector('.nope-overlay');
-
     card.addEventListener('touchstart', start, { passive: true });
     card.addEventListener('touchmove', move, { passive: false });
     card.addEventListener('touchend', end);
-
     card.addEventListener('mousedown', start);
     card.addEventListener('mousemove', move);
     card.addEventListener('mouseup', end);
     card.addEventListener('mouseleave', end);
-
     resetUI();
-
     function start(e) {
         if (e.target.closest('.card-info')) return;
         if (e.target.closest('button')) return;
-
         dragging = true;
         lockedAxis = null;
         startX = getX(e);
         startY = getY(e);
         currentX = 0;
-
         card.style.transition = 'none';
     }
 
     function move(e) {
         if (!dragging) return;
-
         const dx = getX(e) - startX;
         const dy = getY(e) - startY;
-
         if (!lockedAxis) {
             if (Math.abs(dx) < LOCK_DISTANCE && Math.abs(dy) < LOCK_DISTANCE) return;
             lockedAxis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
         }
-
         if (lockedAxis === 'y') return;
-
         currentX = dx;
         card.style.transform = `translateX(${dx}px) rotate(${dx * 0.05}deg)`;
-
         resetUI();
-
         if (dx > 0) {
             // 👉 LIKE
             card.classList.add('is-like');
@@ -234,14 +193,11 @@ function addSwipe(card) {
             card.classList.add('is-nope');
             nopeOverlay.style.opacity = Math.min(Math.abs(dx) / threshold, 1);
         }
-
         e.preventDefault();
     }
-
     function end() {
         dragging = false;
         card.style.transition = 'transform 0.3s ease';
-
         if (currentX > threshold) {
             swipe(card, 'right');
         }
@@ -253,7 +209,6 @@ function addSwipe(card) {
             resetUI();
         }
     }
-
     function resetUI() {
         card.classList.remove('is-like', 'is-nope');
         likeOverlay.style.opacity = 0;
@@ -261,53 +216,38 @@ function addSwipe(card) {
     }
 }
 
-
-
-
-
 function swipe(card, direction) {
     const moveX = direction === 'right' ? 120 : -120;
-
     card.classList.remove('is-like', 'is-nope');
     card.classList.add(direction === 'right' ? 'is-like' : 'is-nope');
-
     const likeOverlay = card.querySelector('.like-overlay');
     const nopeOverlay = card.querySelector('.nope-overlay');
-
     likeOverlay.style.opacity = direction === 'right' ? 1 : 0;
     nopeOverlay.style.opacity = direction === 'left' ? 1 : 0;
-
     if (direction === 'right') {
         // Passer la carte pour identifier le bon profil
         checkMatch(card);
     }
-
     card.style.transition = 'transform 0.3s ease';
     card.style.transform = `translateX(${moveX}vw) rotate(${moveX / 6}deg)`;
-
     setTimeout(() => {
         card.remove();
         loadNextCard();
     }, 300);
 }
 
-
-
 function checkMatch(card) {
     // Utiliser l'index stocké dans la carte pour obtenir le bon profil
     const profileIndex = parseInt(card.dataset.profileIndex);
     const profile = cardsData[profileIndex];
-
     if (!profile || !profile.matchable) {
         if (profile) {
             console.log(`❌ ${profile.name} → hors salle`);
         }
         return;
     }
-
     showMatch(profile);
 }
-
 
 function showMatch(profile) {
     console.log(`💖 MATCH avec ${profile.name}`);
@@ -318,7 +258,6 @@ function showMatch(profile) {
         document.location.href = "/pages/match.html";
     }, 500);
 }
-
 
 function getX(e) {
     return e.type.includes('mouse')
@@ -334,51 +273,40 @@ function getY(e) {
 
 function addInfoPanelDrag(card) {
     const panel = card.querySelector('.card-info');
-
     let startY = 0;
     let currentY = 0;
     let panelStart = 0;
     let dragging = false;
-
     const CLOSED = 90;
     const OPEN = 30.90;
-
     panel.addEventListener('touchstart', start);
     panel.addEventListener('touchmove', move);
     panel.addEventListener('touchend', end);
-
     panel.addEventListener('mousedown', start);
     panel.addEventListener('mousemove', move);
     panel.addEventListener('mouseup', end);
     panel.addEventListener('mouseleave', end);
-
     function start(e) {
         dragging = true;
         startY = getY(e);
         panel.style.transition = 'none';
-
         const match = panel.style.transform.match(/translateY\((.*)%\)/);
         panelStart = match ? parseFloat(match[1]) : CLOSED;
     }
 
     function move(e) {
         if (!dragging) return;
-
         currentY = getY(e);
         const dy = currentY - startY;
-
         let newTranslate = panelStart + (dy / card.offsetHeight) * 100;
         newTranslate = Math.max(OPEN, Math.min(CLOSED, newTranslate));
-
         panel.style.transform = `translateY(${newTranslate}%)`;
     }
 
     function end() {
         if (!dragging) return;
         dragging = false;
-
         panel.style.transition = 'transform 0.25s ease';
-
         if (currentY < startY) {
             panel.style.transform = `translateY(${OPEN}%)`;
         } else {
