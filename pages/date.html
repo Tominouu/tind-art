@@ -10,15 +10,48 @@
     <title>Date !</title>
     <link rel="stylesheet" href="../assets/css/messagerie.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    <style>
+        .date-image-scale {
+            transform: scale(0.2);
+            transition: transform 0.3s ease-out;
+        }
+        .date-image-scale.animate {
+            transform: scale(1);
+        }
+    </style>
 
 </head>
 <body>
 <div class="content-center">
-    <img src="../assets/images/date.png" width="300" alt="Mary">
+    <div style="position: relative; display: inline-block;">
+        <div id="lottie-animation" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 390px; z-index: 1; pointer-events: none;"></div>
+        <img id="date-image" class="date-image-scale" src="../assets/images/date.png" width="300" alt="Mary" style="position: relative; z-index: 2;">
+    </div>
 
     <h1>DATE !</h1>
-    <a href="photo.html" class="startButton ">RDV : Peinture 1</a>
+    <a href="photo.html" class="startButton " style="position: relative; z-index: 10;">RDV : Peinture 1</a>
 
 </div>
+<script>
+    window.addEventListener('load', function() {
+        const animationContainer = document.getElementById('lottie-animation');
+        const dateImage = document.getElementById('date-image');
+
+        // Initialiser l'animation Lottie
+        const animation = lottie.loadAnimation({
+            container: animationContainer,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '../assets/data/date_screen.json'
+        });
+
+        // Déclencher l'animation de scale en ajoutant la classe
+        setTimeout(function() {
+            dateImage.classList.add('animate');
+        }, 50);
+    });
+</script>
 </body>
 </html>
