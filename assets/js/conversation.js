@@ -18,7 +18,6 @@ async function loadConversation() {
         const data = await response.json();
         const contactName = getContactNameFromURL();
         const conversation = data.conversations.find(c => c.contactName === contactName);
-        
         if (conversation) {
             conversationData.responses = conversation.steps;
             updateHeader(conversation);
@@ -46,7 +45,6 @@ function addMessage(text, isSender) {
     const bubbles = discussionEl.querySelectorAll('.bubble');
     const lastBubble = bubbles[bubbles.length - 1];
     const isSameSender = lastBubble && lastBubble.classList.contains(isSender ? 'sender' : 'recipient');
-    
     if (lastBubble) {
         if (isSameSender) {
             lastBubble.classList.remove('first', 'last');
@@ -56,13 +54,11 @@ function addMessage(text, isSender) {
             lastBubble.classList.add('last');
         }
     }
-    
     const bubble = document.createElement('div');
     const position = isSameSender ? 'middle' : 'first';
     bubble.className = `bubble ${isSender ? 'sender' : 'recipient'} ${position}`;
     bubble.textContent = text;
     discussionEl.appendChild(bubble);
-    
     discussionEl.scrollTop = discussionEl.scrollHeight;
     conversationData.lastSender = isSender;
 }
@@ -89,7 +85,7 @@ function updateOptions() {
         return;
     }
     const current = conversationData.responses[conversationData.currentStep];
-    chooseContainer.innerHTML = current.userOptions.map((option, index) => 
+    chooseContainer.innerHTML = current.userOptions.map((option, index) =>
         `<div class="choose-conversation" data-index="${index}">
             <h3 style="color: white">${option}</h3>
         </div>`
@@ -101,7 +97,7 @@ function updateOptions() {
 
 function showWaitingMessage() {
     const current = conversationData.responses[conversationData.currentStep];
-    chooseContainer.innerHTML = current.userOptions.map(() => 
+    chooseContainer.innerHTML = current.userOptions.map(() =>
         `<div class="choose-conversation"><h3 style="color: white">En attente de réponse</h3></div>`
     ).join('');
 }
@@ -117,7 +113,6 @@ function showTypingBubble() {
     const bubbles = discussionEl.querySelectorAll('.bubble');
     const lastBubble = bubbles[bubbles.length - 1];
     const isSameSender = lastBubble && lastBubble.classList.contains('sender');
-    
     if (lastBubble && isSameSender) {
         lastBubble.classList.remove('first', 'last');
         lastBubble.classList.add('middle');
@@ -125,7 +120,6 @@ function showTypingBubble() {
         lastBubble.classList.remove('first', 'middle');
         lastBubble.classList.add('last');
     }
-    
     const typingBubble = document.createElement('div');
     typingBubble.className = `bubble sender ${isSameSender ? 'middle' : 'first'} typing-indicator`;
     typingBubble.textContent = '...';
@@ -138,10 +132,8 @@ function handleOptionClick(e) {
     const current = conversationData.responses[conversationData.currentStep];
     addMessage(current.userOptions[index], false);
     updateLastBubble();
-    
     // Vérifier si c'est le dernier échange (step 3, index 2)
     const isLastExchange = conversationData.currentStep === conversationData.responses.length - 1;
-    
     if (isLastExchange) {
         // C'est le dernier échange, rediriger directement après le message utilisateur
         chooseContainer.innerHTML = '';
@@ -150,7 +142,6 @@ function handleOptionClick(e) {
         }, 1000); // Délai de 1 seconde avant la redirection
         return;
     }
-    
     // Sinon, continuer avec la réponse du bot
     showWaitingMessage();
     showTypingBubble();

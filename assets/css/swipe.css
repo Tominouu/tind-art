@@ -17,8 +17,6 @@ body.no-scroll {
   width: 100%;
 }
 
-
-
 .header {
     position: fixed;
     top: 0;
@@ -53,7 +51,6 @@ body.no-scroll {
     border-radius: 8px;
     object-fit: cover;
 }
-
 
 .card-container {
     display: flex;
@@ -150,7 +147,6 @@ body.no-scroll {
     transform: scale(1);
 }
 
-
 .choice-btn:active img {
     transform: scale(0.9);
 }
@@ -187,14 +183,11 @@ body.no-scroll {
     background: white;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
-
     transform: translateY(90%);
     transition: transform 0.25s ease;
     touch-action: none;
     will-change: transform, opacity;
 }
-
-
 
 /* poignée visuelle */
 .card-info::before {
@@ -217,9 +210,6 @@ body.no-scroll {
     padding-bottom: 10px;
 }
 
-
-
-
 .title-row {
     display: flex;
     flex-direction: column;
@@ -241,7 +231,7 @@ body.no-scroll {
 .location-row img {
     width: 16px;
     height: 16px;
-    
+
 }
 
 .tags-row1, .tags-row2 {
@@ -333,5 +323,3 @@ body.no-scroll {
     font-size: 16px;
     font-weight: bold;
 }
-
-
