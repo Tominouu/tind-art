@@ -171,11 +171,11 @@
             // Gérer le partage
             shareButton.addEventListener('click', async (e) => {
                 e.preventDefault();
-                
+
                 try {
                     // Convertir la photo base64 en File
-                    const photoFile = dataURLtoFile(photoData, 'ma-photo-tindart.jpg');
-                    
+                    const photoFile = dataURLtoFile(photoData, 'mes_gourmandises.jpg');
+
                     // Vérifier si l'API Web Share est disponible
                     if (navigator.share && navigator.canShare && navigator.canShare({ files: [photoFile] })) {
                         await navigator.share({
