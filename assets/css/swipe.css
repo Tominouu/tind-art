@@ -323,3 +323,15 @@ body.no-scroll {
     font-size: 16px;
     font-weight: bold;
 }
+
+#retry-btn {
+    font-family: Afacad, sans-serif ;
+    font-weight: bold;
+    padding: 16px 32px;
+    font-size: 18px;
+    border-radius: 999px;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
