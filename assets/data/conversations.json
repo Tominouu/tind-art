@@ -111,12 +111,6 @@
       ]
     },
     {
-      "contactName": "Giovanni Do",
-      "avatar": "/assets/images/Giovanni_Do_pp.png",
-      "firstMessage": "Tché tarpin beau le sang",
-      "steps": []
-    },
-    {
       "contactName": "Bartolome Esteban",
       "avatar": "/assets/images/Autorretrato_de_Murillo_pp.png",
       "firstMessage": "Si t’étais une œuvre, y aurait un vigile juste pour m’empêcher de trop te fixer.",
@@ -180,8 +174,57 @@
     {
       "contactName": "Pedro de Moya",
       "avatar": "/assets/images/Moya_pintor_pp.png",
-      "firstMessage": "Tché tarpin beau le sang",
-      "steps": []
+      "firstMessage": "Hello tu vas bien ?",
+      "steps": [
+        {
+          "userOptions": [
+            "Ouais , t’y es trop bo le sang",
+            "Pas depuis que j’ai vu ta tête"
+          ],
+          "botResponses": {
+            "0": [
+              "Merci, tu es trop gentil tu veux que je te fasse voyager ? :)",
+              "Merci, tu es trop gentil tu veux que je te fasse voyager ? :)"
+            ],
+            "1": [
+              "Je comprends, c’est vrai que tu n’es pas la beauté incarné non plus. Tu veux que je  te fasse voyager ? :)",
+              "Je comprends, c’est vrai que tu n’es pas la beauté incarné non plus. Tu veux que je  te fasse voyager ? :)"
+            ]
+          }
+        },
+        {
+          "userOptions": [
+            "Pourquoi pas, surprends-moi",
+            "Beh non surtout pas, t’es chelou avec tes émojis"
+          ],
+          "botResponses": {
+            "0": [
+              "Je te propose de me rencontrer pour le départ du grand voyage.",
+              "Je te propose de me rencontrer pour le départ du grand voyage."
+            ],
+            "1": [
+              "T’es pas drôle, viens me voir pour le départ du grand voyage.",
+              "T’es pas drôle, viens me voir pour le départ du grand voyage."
+            ]
+          }
+        },
+        {
+          "userOptions": [
+            "Allez, tu m’as tenté.",
+            "Tu es fou, jamais je viens te voir."
+          ],
+          "botResponses": {
+            "0": [
+              "Alors viens, tu verras la lumière autrement…",
+              "Alors viens, tu verras la lumière autrement…"
+            ],
+            "1": [
+              "La peur fait partie de l’art.",
+              "La peur fait partie de l’art."
+            ]
+          }
+        }
+      ]
     }
   ]
 }
