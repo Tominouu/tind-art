@@ -128,7 +128,7 @@ const baseProfiles = [
         age: "52 ans",
         tag1: "Inachevé",
         tag2: "Éparpillé",
-        tag3: "_",
+        tag3: "Tarot",
         tag4: "Vision",
         image: "../assets/images/card/aissa_koabil_card.png",
         infoText: "Je commence toujours plein de tableaux et je n’en termine jamais aucun. Je passe plus de temps à imaginer ce que je pourrais faire qu’à finir ce que j’ai commencée.",
