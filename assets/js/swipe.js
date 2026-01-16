@@ -486,7 +486,7 @@ function swipe(card, direction) {
         card.remove();
         swipedCount++;
         if (swipedCount >= cardsData.length) {
-            document.querySelector('.end').style.display = 'block';
+            document.querySelector('.end').style.display = 'flex'; 
             document.querySelector('#card-stack').style.display = 'none';
         } else {
             loadNextCard();
@@ -496,7 +496,6 @@ function swipe(card, direction) {
 }
 
 function checkMatch(card) {
-    // Utiliser l'index stocké dans la carte pour obtenir le bon profil
     const profileIndex = parseInt(card.dataset.profileIndex);
     const profile = cardsData[profileIndex];
     if (!profile || !profile.matchable) {
@@ -510,7 +509,6 @@ function checkMatch(card) {
 
 function showMatch(profile) {
     console.log(`💖 MATCH avec ${profile.name}`);
-    // Sauvegarder l'ID du profil matché pour l'utiliser dans match.html
     localStorage.setItem('matchedProfileId', profile.id);
     localStorage.setItem('matchedProfileName', profile.name);
     setTimeout(() => {

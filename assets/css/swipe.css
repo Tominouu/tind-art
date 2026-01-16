@@ -325,20 +325,34 @@ body.no-scroll {
 }
 
 #retry-btn {
-    font-family: Afacad, sans-serif ;
+    font-family: Afacad, sans-serif;
     font-weight: bold;
     padding: 16px 32px;
-    font-size: 18px;
+    font-size: 24px;
     border-radius: 999px;
     border: none;
     background: black;
     color: white;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.end{
+.retry-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
+.end {
+    position: fixed;
+    inset: 0; 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    z-index: 999;
+    text-align: center;
+    gap: 20px;
 }
