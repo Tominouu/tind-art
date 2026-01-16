@@ -25,11 +25,17 @@
 </header>
 <main class="card-container">
     <div id="card-stack"></div>
+    <div class="end" style="display: none;">
+        <button id="retry-btn">Réessayer</button>
+    </div>
 </main>
 </main>
 <script src="../assets/js/swipe.js"></script>
 </body>
 <script>
     document.body.classList.add('no-scroll');
+    document.getElementById('retry-btn').addEventListener('click', function() {
+        location.reload();
+    });
 </script>
 </html>
