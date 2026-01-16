@@ -1,0 +1,60 @@
+@media (min-width: 600px) {
+
+  /* === Phone Frame for Desktop === */
+  .phone-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.1rem;
+  }
+  .main1{
+    padding: 0 !important;
+  }
+  .phone-frame {
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    height: 900px; /* hauteur fixe pour desktop */
+    max-height: 99vh;
+    border-radius: 50px;
+    border: black 16px solid;
+    display: flex;          /* <-- clé pour flex layout */
+    flex-direction: column; /* on empile header / main / footer */
+    overflow: hidden;       /* on garde les bords arrondis */
+  }
+  .discussion{
+    margin-bottom: 15px;
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 30px;
+    background: black;
+    border-radius: 0 0 20px 20px;
+    z-index: 1000;
+  }
+
+  main{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .header{
+
+      position: relative !important;
+  }
+
+  header, footer{
+    position: relative !important;
+  }
+
+  body{
+    padding: 0;
+  };
+
+}

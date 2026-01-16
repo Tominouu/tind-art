@@ -7,6 +7,7 @@
     <meta name="theme-color" content="#FFF0F6">
     <title>Prend une photo !</title>
     <link rel="stylesheet" href="../assets/css/messagerie.css">
+    <link rel="stylesheet" href="../assets/css/phone_mockup.css">  
     <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
     <style>
         /* Mobile First - Base styles */
@@ -217,32 +218,44 @@
     </style>
 </head>
 <body>
-<div class="content-center" id="main-container">
-    <div class="skip">
-        <a href="end-2.html">
-          <img src="../assets/images/SKIP.png" alt="">
-        </a>
-    </div>
-    <div class="initial-content">
-        <img src="../assets/images/take-photo.png" width="100" alt="Mary">
-        <div class="photo-banner">
-            <h2>PRENONS UNE PHOTO ENSEMBLE !</h2>
-            <button id="acceder-camera-btn" class="startButton">Accéder à la caméra</button>
-        </div>
-    </div>
-    <div id="error-message"></div>
-    <div class="camera-container">
-        <div class="video-wrapper">
-            <video id="video" autoplay playsinline></video>
-        </div>
-        <div id="camera-controls">
-            <div class="button-group">
-                <button id="capturer-btn" class="capture-button">📷 Prendre la photo</button>
-                <button id="annuler-btn" class="cancel-button">Annuler</button>
+    
+    <div class="phone-wrapper">
+        <div class="phone-frame">
+            <div class="phone-notch"></div>
+
+            <div id="app">
+                <main class="app-main">
+                    <div class="content-center" id="main-container">
+                        <div class="skip">
+                            <a href="end-2.html">
+                            <img src="../assets/images/SKIP.png" alt="">
+                            </a>
+                        </div>
+                        <div class="initial-content">
+                            <img src="../assets/images/take-photo.png" width="100" alt="Mary">
+                            <div class="photo-banner">
+                                <h2>PRENONS UNE PHOTO ENSEMBLE !</h2>
+                                <button id="acceder-camera-btn" class="startButton">Accéder à la caméra</button>
+                            </div>
+                        </div>
+                        <div id="error-message"></div>
+                        <div class="camera-container">
+                            <div class="video-wrapper">
+                                <video id="video" autoplay playsinline></video>
+                            </div>
+                            <div id="camera-controls">
+                                <div class="button-group">
+                                    <button id="capturer-btn" class="capture-button">📷 Prendre la photo</button>
+                                    <button id="annuler-btn" class="cancel-button">Annuler</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="../assets/js/photo.js"></script>
+                </main>
             </div>
+
         </div>
     </div>
-</div>
-<script src="../assets/js/photo.js"></script>
 </body>
 </html>

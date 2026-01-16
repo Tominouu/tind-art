@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="stylesheet" href="../assets/css/phone_mockup.css">
     <meta name="theme-color" content="#FFF0F6">
     <title>The end</title>
     <link rel="stylesheet" href="../assets/css/messagerie.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
     <style>
+        /* Ton CSS reste inchangé */
         .photo-container {
             display: flex;
             flex-direction: column;
@@ -16,13 +18,11 @@
             gap: 20px;
             padding: 20px;
         }
-
         .no-photo-message {
             text-align: center;
             color: #ff007b;
             padding: 20px;
         }
-
         .frame-container {
             position: relative;
             width: 200px;
@@ -31,7 +31,6 @@
             align-items: center;
             justify-content: center;
         }
-
         .frame {
             position: absolute;
             width: 200px;
@@ -41,7 +40,6 @@
             left: 0;
             pointer-events: none;
         }
-
         #photo-display {
             position: absolute;
             z-index: 1;
@@ -53,25 +51,21 @@
             align-items: center;
             justify-content: center;
         }
-
         #photo-affichee {
             width: 190px;
             height: 220px;
             object-fit: cover;
             display: block;
         }
-
         .message-photo {
             text-align: center;
             font-size: 24px;
             margin-top: 20px;
         }
-
         .amour-container {
             display: inline-block;
             position: relative;
         }
-
         .heart-icon {
             position: absolute;
             width: 80px;
@@ -81,18 +75,15 @@
             transform: translateX(-50%);
             z-index: 1;
         }
-
         .back img {
             width: 150px;
             height: auto;
         }
-
         .back {
             position: absolute;
             top: 20px;
             right: 210px;
         }
-
         .share-container {
             position: fixed;
             bottom: 30px;
@@ -100,7 +91,6 @@
             transform: translateX(-50%);
             text-align: center;
         }
-
         .share-button {
             color: #ff007b;
             text-decoration: none;
@@ -112,102 +102,108 @@
             background: transparent;
             transition: all 0.3s ease;
         }
-
         .share-button:hover {
             background: #ff007b;
             color: white;
         }
-
     </style>
 </head>
 <body>
-<div class="content-center">
-    <div class="back">
-        <a href="../index.html">
-            <img src="../assets/images/back.png" alt="">
-        </a>
-    </div>
-    <img src="../assets/images/Logo_tindart.svg" alt="Logo Tind'Art" class="logo-end">
-    <div class="photo-container">
-        <div class="frame-container">
-            <img src="../assets/images/carde-en-bois.png" alt="Cadre en bois" class="frame">
-            <div id="photo-display">
+    <div class="phone-wrapper">
+        <div class="phone-frame">
+            <div class="phone-notch"></div>
+
+            <div id="app">
+                <main class="app-main">
+                    <div class="content-center">
+                        <div class="back">
+                            <a href="../index.html">
+                                <img src="../assets/images/back.png" alt="">
+                            </a>
+                        </div>
+
+                        <img src="../assets/images/Logo_tindart.svg" alt="Logo Tind'Art" class="logo-end">
+
+                        <div class="photo-container">
+                            <div class="frame-container">
+                                <img src="../assets/images/carde-en-bois.png" alt="Cadre en bois" class="frame">
+                                <div id="photo-display"></div>
+                            </div>
+                            <p class="message-photo">
+                                Bravo tu as trouvé l'<span class="amour-container">
+                                    <img src="../assets/images/heart_border.svg" alt="Cœur" class="heart-icon">
+                                    <span>amour</span>
+                                </span> !
+                            </p>
+                        </div>
+
+                        <div class="share-container">
+                            <a href="#" class="share-button" id="share-button">Partager ma photo</a>
+                        </div>
+                    </div>
+                </main>
             </div>
         </div>
-        <p class="message-photo">Bravo tu as trouvé l'<span class="amour-container"><img src="../assets/images/heart_border.svg" alt="Cœur" class="heart-icon"><span>amour</span></span> !</p>
     </div>
-    <div class="share-container">
-        <a href="#" class="share-button" id="share-button">Partager ma photo</a>
-    </div>
-</div>
-<script>
-    // Fonction pour convertir base64 en File
-    function dataURLtoFile(dataurl, filename) {
-        const arr = dataurl.split(',');
-        const mime = arr[0].match(/:(.*?);/)[1];
-        const bstr = atob(arr[1]);
-        let n = bstr.length;
-        const u8arr = new Uint8Array(n);
-        while(n--){
-            u8arr[n] = bstr.charCodeAt(n);
+
+    <script>
+        // Ton JavaScript reste inchangé
+        function dataURLtoFile(dataurl, filename) {
+            const arr = dataurl.split(',');
+            const mime = arr[0].match(/:(.*?);/)[1];
+            const bstr = atob(arr[1]);
+            let n = bstr.length;
+            const u8arr = new Uint8Array(n);
+            while(n--){
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new File([u8arr], filename, {type:mime});
         }
-        return new File([u8arr], filename, {type:mime});
-    }
 
-    // Récupérer la photo depuis localStorage
-    document.addEventListener('DOMContentLoaded', () => {
-        const photoData = localStorage.getItem('photoCapturee');
-        const photoDisplay = document.getElementById('photo-display');
-        const shareButton = document.getElementById('share-button');
+        document.addEventListener('DOMContentLoaded', () => {
+            const photoData = localStorage.getItem('photoCapturee');
+            const photoDisplay = document.getElementById('photo-display');
+            const shareButton = document.getElementById('share-button');
 
-        if (photoData) {
-            // Créer une image et l'afficher
-            const img = document.createElement('img');
-            img.id = 'photo-affichee';
-            img.src = photoData;
-            img.alt = 'Photo capturée';
-            photoDisplay.appendChild(img);
+            if (photoData) {
+                const img = document.createElement('img');
+                img.id = 'photo-affichee';
+                img.src = photoData;
+                img.alt = 'Photo capturée';
+                photoDisplay.appendChild(img);
 
-            // Gérer le partage
-            shareButton.addEventListener('click', async (e) => {
-                e.preventDefault();
-                
-                try {
-                    // Convertir la photo base64 en File
-                    const photoFile = dataURLtoFile(photoData, 'ma-photo-tindart.jpg');
-                    
-                    // Vérifier si l'API Web Share est disponible
-                    if (navigator.share && navigator.canShare && navigator.canShare({ files: [photoFile] })) {
-                        await navigator.share({
-                            files: [photoFile],
-                            title: 'Ma photo Tind\'Art',
-                            text: 'Découvre ma photo Tind\'Art !'
-                        });
-                    } else {
-                        // Fallback : télécharger l'image
+                shareButton.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    try {
+                        const photoFile = dataURLtoFile(photoData, 'ma-photo-tindart.jpg');
+                        if (navigator.share && navigator.canShare && navigator.canShare({ files: [photoFile] })) {
+                            await navigator.share({
+                                files: [photoFile],
+                                title: 'Ma photo Tind\'Art',
+                                text: 'Découvre ma photo Tind\'Art !'
+                            });
+                        } else {
+                            const link = document.createElement('a');
+                            link.href = photoData;
+                            link.download = 'ma-photo-tindart.jpg';
+                            link.click();
+                        }
+                    } catch (error) {
+                        console.error('Erreur lors du partage:', error);
                         const link = document.createElement('a');
                         link.href = photoData;
                         link.download = 'ma-photo-tindart.jpg';
                         link.click();
                     }
-                } catch (error) {
-                    console.error('Erreur lors du partage:', error);
-                    // Fallback : télécharger l'image
-                    const link = document.createElement('a');
-                    link.href = photoData;
-                    link.download = 'ma-photo-tindart.jpg';
-                    link.click();
-                }
-            });
-        } else {
-            // Afficher un message si aucune photo n'est disponible
-            const noPhotoMessage = document.createElement('p');
-            noPhotoMessage.className = 'no-photo-message';
-            noPhotoMessage.textContent = 'Aucune photo disponible. Veuillez prendre une photo depuis la page précédente.';
-            photoDisplay.appendChild(noPhotoMessage);
-            shareButton.style.display = 'none';
-        }
-    });
-</script>
+                });
+            } else {
+                const noPhotoMessage = document.createElement('p');
+                noPhotoMessage.className = 'no-photo-message';
+                noPhotoMessage.textContent = 'Aucune photo disponible. Veuillez prendre une photo depuis la page précédente.';
+                photoDisplay.appendChild(noPhotoMessage);
+                shareButton.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -8,6 +8,7 @@
     <title>Match !</title>
     <link rel="stylesheet" href="../assets/css/messagerie.css">
     <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+    <link rel="stylesheet" href="../assets/css/phone_mockup.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <style>
         .match-image-scale {
@@ -20,78 +21,88 @@
     </style>
 </head>
 <body>
-<div class="content-center">
-    <div style="position: relative; display: inline-block;">
-        <div id="lottie-animation" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 390px; z-index: 1; pointer-events: none;"></div>
-        <img id="match-image" class="match-image-scale" src="../assets/images/match_people.png" width="270" alt="Match" style="position: relative; z-index: 2;">
+    <div class="phone-wrapper">
+        <div class="phone-frame">
+            <div class="phone-notch"></div>
+
+            <div id="app">
+                <main class="app-main">
+                    <div class="content-center">
+                        <div style="position: relative; display: inline-block;">
+                            <div id="lottie-animation" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 390px; z-index: 1; pointer-events: none;"></div>
+                            <img id="match-image" class="match-image-scale" src="../assets/images/match_people.png" width="270" alt="Match" style="position: relative; z-index: 2;">
+                        </div>
+                        <h1>MATCH !</h1>
+                        <a id="conversation-link" href="#" class="startButton " style="position: relative; z-index: 10;">Parlons ensemble !</a>
+                    </div>
+                </main>
+            </div>
+        </div>
     </div>
-    <h1>MATCH !</h1>
-    <a id="conversation-link" href="#" class="startButton " style="position: relative; z-index: 10;">Parlons ensemble !</a>
-</div>
-<script>
-    window.addEventListener('load', function() {
-        const animationContainer = document.getElementById('lottie-animation');
-        const matchImage = document.getElementById('match-image');
-        
-        // Mapping des noms de profils vers les identifiants utilisés dans les noms de fichiers
-        const profileNameToId = {
-            'Luca Giordano': 'luca',
-            'Dirck Van Baburen': 'baburen',
-            'Bartolomé Esteban': 'bartolome',
-            'Trophime Bigot': 'trophime',
-            'Pedro de Moya': 'pedro'
-        };
-        
-        const conversationNameMap = {
-            'Luca Giordano': 'Luca Giordano',
-            'Dirck Van Baburen': 'Dirck Van Baburen',
-            'Bartolomé Esteban': 'Bartolome Esteban',
-            'Trophime Bigot': 'Trophime Bigot',
-            'Pedro de Moya': 'Pedro de Moya'
-        };
-        
-        const matchedProfileName = localStorage.getItem('matchedProfileName');
-        const avatarChoisi = localStorage.getItem('avatar');
-        const conversationLink = document.getElementById('conversation-link');
-        
-        // Déterminer l'image de match selon l'avatar et le profil matché
-        if (matchedProfileName && avatarChoisi && profileNameToId[matchedProfileName]) {
-            const profileId = profileNameToId[matchedProfileName];
-            let imageFileName;
+
+    <script>
+        window.addEventListener('load', function() {
+            const animationContainer = document.getElementById('lottie-animation');
+            const matchImage = document.getElementById('match-image');
             
-            if (avatarChoisi === 'avatar_men') {
-                imageFileName = `men_match_${profileId}.png`;
-            } else if (avatarChoisi === 'avatar_women') {
-                // Note: pour Luca, le fichier est "woman_match_luca.png" (singulier)
-                if (profileId === 'luca') {
-                    imageFileName = 'woman_match_luca.png';
-                } else {
-                    imageFileName = `women_match_${profileId}.png`;
+            const profileNameToId = {
+                'Luca Giordano': 'luca',
+                'Dirck Van Baburen': 'baburen',
+                'Bartolomé Esteban': 'bartolome',
+                'Trophime Bigot': 'trophime',
+                'Pedro de Moya': 'pedro'
+            };
+            
+            const conversationNameMap = {
+                'Luca Giordano': 'Luca Giordano',
+                'Dirck Van Baburen': 'Dirck Van Baburen',
+                'Bartolomé Esteban': 'Bartolome Esteban',
+                'Trophime Bigot': 'Trophime Bigot',
+                'Pedro de Moya': 'Pedro de Moya'
+            };
+            
+            const matchedProfileName = localStorage.getItem('matchedProfileName');
+            const avatarChoisi = localStorage.getItem('avatar');
+            const conversationLink = document.getElementById('conversation-link');
+            
+            if (matchedProfileName && avatarChoisi && profileNameToId[matchedProfileName]) {
+                const profileId = profileNameToId[matchedProfileName];
+                let imageFileName;
+                
+                if (avatarChoisi === 'avatar_men') {
+                    imageFileName = `men_match_${profileId}.png`;
+                } else if (avatarChoisi === 'avatar_women') {
+                    if (profileId === 'luca') {
+                        imageFileName = 'woman_match_luca.png';
+                    } else {
+                        imageFileName = `women_match_${profileId}.png`;
+                    }
+                }
+                
+                if (imageFileName) {
+                    matchImage.src = `../assets/images/match/${imageFileName}`;
                 }
             }
             
-            if (imageFileName) {
-                matchImage.src = `../assets/images/match/${imageFileName}`;
+            if (matchedProfileName && conversationNameMap[matchedProfileName]) {
+                const conversationName = encodeURIComponent(conversationNameMap[matchedProfileName]);
+                conversationLink.href = `conversation.html?contact=${conversationName}`;
+            } else {
+                conversationLink.href = 'messagerie.html';
             }
-        }
-        
-        if (matchedProfileName && conversationNameMap[matchedProfileName]) {
-            const conversationName = encodeURIComponent(conversationNameMap[matchedProfileName]);
-            conversationLink.href = `conversation.html?contact=${conversationName}`;
-        } else {
-            conversationLink.href = 'messagerie.html';
-        }
-        const animation = lottie.loadAnimation({
-            container: animationContainer,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: '../assets/data/match_screen.json'
+
+            const animation = lottie.loadAnimation({
+                container: animationContainer,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '../assets/data/match_screen.json'
+            });
+
+            setTimeout(function() {
+                matchImage.classList.add('animate');
+            }, 50);
         });
-        setTimeout(function() {
-            matchImage.classList.add('animate');
-        }, 50);
-    });
-</script>
+    </script>
 </body>
 </html>

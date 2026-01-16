@@ -5,37 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversation</title>
     <link rel="stylesheet" href="/assets/css/messagerie.css">
+    <link rel="stylesheet" href="../assets/css/phone_mockup.css">
     <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
     <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-            integrity="sha512-..."
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-..."
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
     />
 </head>
 <body>
-<header>
-    <div class="title-container-conversation">
-        <!-- <a href="messagerie.html">
-            <div class="back-icon-conversation">
-                <i class="fa-solid fa-angle-left" style="font-size: 10px"></i>
+
+    <div class="phone-wrapper">
+        <div class="phone-frame">
+            <div class="phone-notch"></div>
+
+            <div id="app">
+                <main class="app-main">
+
+                    <header>
+                        <div class="title-container-conversation">
+                            <!--
+                            <a href="messagerie.html">
+                                <div class="back-icon-conversation">
+                                    <i class="fa-solid fa-angle-left" style="font-size: 10px"></i>
+                                </div>
+                            </a>
+                            -->
+                            <div>
+                                <img src="/assets/images/luca_pp.png" alt="Mary" class="avatar-conversation">
+                            </div>
+                            <div>
+                                <h3>Paul Cezanne</h3>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="main1">
+                        <section class="discussion"></section>
+                    </div>
+
+                    <footer>
+                        <div class="choose-container"></div>
+                    </footer>
+
+                </main>
             </div>
-        </a> -->
-        <div>
-            <img src="/assets/images/luca_pp.png" alt="Mary" class="avatar-conversation">
-        </div>
-        <div>
-            <h3>Paul Cezanne</h3>
+
         </div>
     </div>
-</header>
-<main>
-    <section class="discussion"></section>
-</main>
-<footer>
-    <div class="choose-container"></div>
-</footer>
-<script src="/assets/js/conversation.js"></script>
+
+    <script src="/assets/js/conversation.js"></script>
 </body>
 </html>
