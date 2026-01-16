@@ -30,7 +30,7 @@
                     <div class="content-center">
                         <div style="position: relative; display: inline-block;">
                             <div id="lottie-animation" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 390px; z-index: 1; pointer-events: none;"></div>
-                            <img id="match-image" class="match-image-scale" src="../assets/images/match_people.png" width="270" alt="Match" style="position: relative; z-index: 2;">
+                            <img id="match-image" class="match-image-scale" src="" width="270" alt="Match" style="position: relative; z-index: 2;">
                         </div>
                         <h1>MATCH !</h1>
                         <a id="conversation-link" href="#" class="startButton " style="position: relative; z-index: 10;">Parlons ensemble !</a>
@@ -44,7 +44,7 @@
         window.addEventListener('load', function() {
             const animationContainer = document.getElementById('lottie-animation');
             const matchImage = document.getElementById('match-image');
-            
+
             const profileNameToId = {
                 'Luca Giordano': 'luca',
                 'Dirck Van Baburen': 'baburen',
@@ -52,7 +52,7 @@
                 'Trophime Bigot': 'trophime',
                 'Pedro de Moya': 'pedro'
             };
-            
+
             const conversationNameMap = {
                 'Luca Giordano': 'Luca Giordano',
                 'Dirck Van Baburen': 'Dirck Van Baburen',
@@ -60,15 +60,15 @@
                 'Trophime Bigot': 'Trophime Bigot',
                 'Pedro de Moya': 'Pedro de Moya'
             };
-            
+
             const matchedProfileName = localStorage.getItem('matchedProfileName');
             const avatarChoisi = localStorage.getItem('avatar');
             const conversationLink = document.getElementById('conversation-link');
-            
+
             if (matchedProfileName && avatarChoisi && profileNameToId[matchedProfileName]) {
                 const profileId = profileNameToId[matchedProfileName];
                 let imageFileName;
-                
+
                 if (avatarChoisi === 'avatar_men') {
                     imageFileName = `men_match_${profileId}.png`;
                 } else if (avatarChoisi === 'avatar_women') {
@@ -78,12 +78,12 @@
                         imageFileName = `women_match_${profileId}.png`;
                     }
                 }
-                
+
                 if (imageFileName) {
                     matchImage.src = `../assets/images/match/${imageFileName}`;
                 }
             }
-            
+
             if (matchedProfileName && conversationNameMap[matchedProfileName]) {
                 const conversationName = encodeURIComponent(conversationNameMap[matchedProfileName]);
                 conversationLink.href = `conversation.html?contact=${conversationName}`;
