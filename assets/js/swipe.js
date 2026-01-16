@@ -264,7 +264,7 @@ const baseProfiles = [
         tag3: "Shatta",
         tag4: "Voyage",
         image: "../assets/images/card/pidi_card.png",
-        infoText: "Je suis cherche une personne pour découvrir le monde, passer de bons moments. J’ai besoin de me mettre au sport donc si tu peux m’aider ça pourrait être bien ;)",
+        infoText: "Je cherche une personne pour découvrir le monde, passer de bons moments. J’ai besoin de me mettre au sport donc si tu peux m’aider ça pourrait être bien ;)",
         infoImage: "../assets/images/card/pidi_card.png",
         matchable: false,
         redflag1: "Timide",
