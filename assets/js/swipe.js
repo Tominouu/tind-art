@@ -238,18 +238,18 @@ const baseProfiles = [
         id: 13,
         name: "Léonie Laval",
         type: "Relation long terme",
-        ville: "Carrefour",
+        ville: "Nantes",
         age: "23 ans",
         tag1: "CDI",
-        tag2: "Malt de blé",
-        tag3: "Fêtes",
-        tag4: "Amusement",
+        tag2: "Enjoyer",
+        tag3: "Partage",
+        tag4: "TikTok",
         image: "../assets/images/card/leonie_card.png",
         infoText: "Je suis Léonie, spontanée, souriante et toujours moi-même. J’aime partager des moments simples, mettre de la bonne humeur autour de moi et montrer que l’authenticité peut aussi faire sourire.",
         infoImage: "../assets/images/card/leonie_card.png",
         matchable: false,
-        redflag1: "Lidl",
-        redflag2: "Lidl",
+        redflag1: "Mono sourcil",
+        redflag2: "Bordélique",
         greenflag1: "Mise en rayon",
         greenflag2: "Fidèle"
     },
@@ -486,7 +486,7 @@ function swipe(card, direction) {
         card.remove();
         swipedCount++;
         if (swipedCount >= cardsData.length) {
-            document.querySelector('.end').style.display = 'flex'; 
+            document.querySelector('.end').style.display = 'flex';
             document.querySelector('#card-stack').style.display = 'none';
         } else {
             loadNextCard();
