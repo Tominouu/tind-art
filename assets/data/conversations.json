@@ -168,8 +168,57 @@
     {
       "contactName": "Trophime Bigot",
       "avatar": "/assets/images/Trophime_Bigot_pp.png",
-      "firstMessage": "Tché tarpin beau le sang",
-      "steps": []
+      "firstMessage": "J’espère que tu mets le feu sur la piste de danse.",
+      "steps": [
+        {
+          "userOptions": [
+            "Bien sur, j’aimerais bien voir ton feu",
+            "Nan j’aime pas trop danser"
+          ],
+          "botResponses": {
+            "0": [
+              "Je comprends, tu aimes bien les bougies ?",
+              "Je comprends, tu aimes bien les bougies ?"
+            ],
+            "1": [
+              "Et sinon, t’aimes les bougies ?",
+              "Et sinon, t’aimes les bougies ?"
+            ]
+          }
+        },
+        {
+          "userOptions": [
+            "Pourquoi pas, surprends-moi",
+            "Bof, j’ai peur de la lumière"
+          ],
+          "botResponses": {
+            "0": [
+              "Si tu veux tu peux les admirer pendant notre date :)",
+              "Si tu veux tu peux les admirer pendant notre date :)"
+            ],
+            "1": [
+              "La mienne est chaleureuse, viens l’admirer pendant notre date.",
+              "La mienne est chaleureuse, viens l’admirer pendant notre date."
+            ]
+          }
+        },
+        {
+          "userOptions": [
+            "D’accord, tu m’as convaincu",
+            "Non je ne veux pas de ta lumière."
+          ],
+          "botResponses": {
+            "0": [
+              "…",
+              "…"
+            ],
+            "1": [
+              "…",
+              "…"
+            ]
+          }
+        }
+      ]
     },
     {
       "contactName": "Pedro de Moya",
