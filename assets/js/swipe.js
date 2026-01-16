@@ -274,7 +274,7 @@ const baseProfiles = [
     },
     {
         id: 15,
-        name: "Paul",
+        name: "Tarhan Farhan",
         type: "Relation long terme",
         ville: "Bordeaux",
         age: "25 ans",
