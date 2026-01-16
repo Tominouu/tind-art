@@ -272,6 +272,25 @@ const baseProfiles = [
         greenflag1: "Entreprenant",
         greenflag2: "Sportif"
     },
+    {
+        id: 15,
+        name: "Pidi à Walouz",
+        type: "Relation long terme",
+        ville: "Paris",
+        age: "25 ans",
+        tag1: "Boutiques",
+        tag2: "Restaurants",
+        tag3: "Shatta",
+        tag4: "Voyage",
+        image: "../assets/images/card/pidi_card.png",
+        infoText: "Je suis cherche une personne pour découvrir le monde, passer de bons moments. J’ai besoin de me mettre au sport donc si tu peux m’aider ça pourrait être bien ;)",
+        infoImage: "../assets/images/card/pidi_card.png",
+        matchable: false,
+        redflag1: "Timide",
+        redflag2: "Mou",
+        greenflag1: "Entreprenant",
+        greenflag2: "Sportif"
+    },
 ];
 
 function shuffle(array) {
