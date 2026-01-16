@@ -140,6 +140,10 @@ function loadNextCard() {
     card.dataset.profileIndex = currentIndex;
     cardStack.appendChild(card);
     currentIndex++;
+    if (currentIndex >= cardsData.length) {
+        document.querySelector('.end').style.display = 'block';
+        document.querySelector('#card-stack').style.display = 'none';
+    }
 }
 
 function addSwipe(card) {
