@@ -129,11 +129,16 @@ function showTypingBubble() {
 }
 
 function handleOptionClick(e) {
-    const index = parseInt(e.currentTarget.dataset.index);
+    const index = parseInt(e.currentTarget.dataset.index); // 0 ou 1 selon l'option choisie
     const current = conversationData.responses[conversationData.currentStep];
+    
+    // Afficher le message de l'utilisateur (userOptions[0] ou userOptions[1])
     addMessage(current.userOptions[index], false);
     updateLastBubble();
+    
     const isLastExchange = conversationData.currentStep === conversationData.responses.length - 1;
+    
+    // Si dernière échange et option 1 (négative), rediriger vers swipe.html
     if (isLastExchange && index === 1) {
         chooseContainer.innerHTML = '';
         setTimeout(() => {
@@ -141,6 +146,24 @@ function handleOptionClick(e) {
         }, 500);
         return;
     }
+    
+    // Fonction pour obtenir et afficher la réponse du bot
+    const getAndShowBotResponse = () => {
+        // Si userOptions[0] (index 0) → botResponses["0"]
+        // Si userOptions[1] (index 1) → botResponses["1"]
+        const responseKey = index.toString(); // "0" ou "1"
+        const botResponses = current.botResponses[responseKey];
+        
+        if (!botResponses || botResponses.length === 0) {
+            console.error(`Aucune réponse trouvée pour l'index ${index} (clé "${responseKey}")`);
+            return;
+        }
+        
+        const randomBotResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
+        addMessage(randomBotResponse, true);
+        updateLastBubble();
+    };
+    
     if (isLastExchange) {
         chooseContainer.innerHTML = '';
         showWaitingMessage();
@@ -148,11 +171,7 @@ function handleOptionClick(e) {
         const delay = Math.floor(Math.random() * 2000) + 2000;
         setTimeout(() => {
             removeTypingBubble();
-            // Utiliser l'index de l'option choisie pour sélectionner la bonne réponse
-            const botResponses = current.botResponses[index.toString()];
-            const randomBotResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
-            addMessage(randomBotResponse, true);
-            updateLastBubble();
+            getAndShowBotResponse();
             const contactName = getContactNameFromURL();
             setTimeout(() => {
                 window.location.href = `date.html?contact=${encodeURIComponent(contactName)}`;
@@ -160,16 +179,13 @@ function handleOptionClick(e) {
         }, delay);
         return;
     }
+    
     showWaitingMessage();
     showTypingBubble();
     const delay = Math.floor(Math.random() * 2000) + 2000;
     setTimeout(() => {
         removeTypingBubble();
-        // Utiliser l'index de l'option choisie pour sélectionner la bonne réponse
-        const botResponses = current.botResponses[index.toString()];
-        const randomBotResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
-        addMessage(randomBotResponse, true);
-        updateLastBubble();
+        getAndShowBotResponse();
         conversationData.currentStep++;
         updateOptions();
     }, delay);
