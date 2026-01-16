@@ -147,6 +147,16 @@ function handleOptionClick(e) {
         return;
     }
     
+    // Si c'est le dernier échange, rediriger vers date.html juste après le message de l'utilisateur
+    if (isLastExchange) {
+        chooseContainer.innerHTML = '';
+        const contactName = getContactNameFromURL();
+        setTimeout(() => {
+            window.location.href = `date.html?contact=${encodeURIComponent(contactName)}`;
+        }, 1000);
+        return;
+    }
+    
     // Fonction pour obtenir et afficher la réponse du bot
     const getAndShowBotResponse = () => {
         // Si userOptions[0] (index 0) → botResponses["0"]
@@ -163,22 +173,6 @@ function handleOptionClick(e) {
         addMessage(randomBotResponse, true);
         updateLastBubble();
     };
-    
-    if (isLastExchange) {
-        chooseContainer.innerHTML = '';
-        showWaitingMessage();
-        showTypingBubble();
-        const delay = Math.floor(Math.random() * 2000) + 2000;
-        setTimeout(() => {
-            removeTypingBubble();
-            getAndShowBotResponse();
-            const contactName = getContactNameFromURL();
-            setTimeout(() => {
-                window.location.href = `date.html?contact=${encodeURIComponent(contactName)}`;
-            }, 1000);
-        }, delay);
-        return;
-    }
     
     showWaitingMessage();
     showTypingBubble();
