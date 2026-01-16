@@ -148,7 +148,8 @@ function handleOptionClick(e) {
         const delay = Math.floor(Math.random() * 2000) + 2000;
         setTimeout(() => {
             removeTypingBubble();
-            const botResponses = current.botResponses[0];
+            // Utiliser l'index de l'option choisie pour sélectionner la bonne réponse
+            const botResponses = current.botResponses[index.toString()];
             const randomBotResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
             addMessage(randomBotResponse, true);
             updateLastBubble();
@@ -164,7 +165,8 @@ function handleOptionClick(e) {
     const delay = Math.floor(Math.random() * 2000) + 2000;
     setTimeout(() => {
         removeTypingBubble();
-        const botResponses = current.botResponses[0];
+        // Utiliser l'index de l'option choisie pour sélectionner la bonne réponse
+        const botResponses = current.botResponses[index.toString()];
         const randomBotResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
         addMessage(randomBotResponse, true);
         updateLastBubble();
