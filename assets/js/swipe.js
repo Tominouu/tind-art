@@ -279,17 +279,17 @@ const baseProfiles = [
         ville: "Bordeaux",
         age: "25 ans",
         tag1: "FL Studio",
-        tag2: "Restaurants",
-        tag3: "Shatta",
-        tag4: "Voyage",
+        tag2: "Buffet à volonté",
+        tag3: "Underground",
+        tag4: "Charcuterie",
         image: "../assets/images/card/paul_card.png",
-        infoText: "Je suis cherche une personne pour découvrir le monde, passer de bons moments. J’ai besoin de me mettre au sport donc si tu peux m’aider ça pourrait être bien ;)",
+        infoText: "Je suis un artiste musical et j’expose mon art dans des établissements de nuit. Si tu sais chanter, je cherche des a cappella.",
         infoImage: "../assets/images/card/paul_card.png",
         matchable: false,
-        redflag1: "Timide",
-        redflag2: "Mou",
-        greenflag1: "Entreprenant",
-        greenflag2: "Sportif"
+        redflag1: "Chante faux",
+        redflag2: "Friperies",
+        greenflag1: "Autodidacte",
+        greenflag2: "Gourmand"
     },
 ];
 
