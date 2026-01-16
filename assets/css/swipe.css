@@ -335,3 +335,10 @@ body.no-scroll {
     color: white;
     cursor: pointer;
 }
+
+.end{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

@@ -280,6 +280,7 @@ function shuffle(array) {
 
 let cardsData = [];
 let currentIndex = 0;
+let swipedCount = 0;
 
 function initGame() {
     const matchables = baseProfiles.filter(p => p.matchable);
@@ -391,10 +392,6 @@ function loadNextCard() {
     card.dataset.profileIndex = currentIndex;
     cardStack.appendChild(card);
     currentIndex++;
-    if (currentIndex >= cardsData.length) {
-        document.querySelector('.end').style.display = 'block';
-        document.querySelector('#card-stack').style.display = 'none';
-    }
 }
 
 function addSwipe(card) {
@@ -487,8 +484,15 @@ function swipe(card, direction) {
     card.style.transform = `translateX(${moveX}vw) rotate(${moveX / 6}deg)`;
     setTimeout(() => {
         card.remove();
-        loadNextCard();
+        swipedCount++;
+        if (swipedCount >= cardsData.length) {
+            document.querySelector('.end').style.display = 'block';
+            document.querySelector('#card-stack').style.display = 'none';
+        } else {
+            loadNextCard();
+        }
     }, 300);
+
 }
 
 function checkMatch(card) {
