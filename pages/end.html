@@ -172,38 +172,46 @@
                 img.alt = 'Photo capturée';
                 photoDisplay.appendChild(img);
 
-                shareButton.addEventListener('click', async (e) => {
-                    e.preventDefault();
-                    try {
-                        const photoFile = dataURLtoFile(photoData, 'ma-photo-tindart.jpg');
-                        if (navigator.share && navigator.canShare && navigator.canShare({ files: [photoFile] })) {
-                            await navigator.share({
-                                files: [photoFile],
-                                title: 'Ma photo Tind\'Art',
-                                text: 'Découvre ma photo Tind\'Art !'
-                            });
-                        } else {
-                            const link = document.createElement('a');
-                            link.href = photoData;
-                            link.download = 'ma-photo-tindart.jpg';
-                            link.click();
-                        }
-                    } catch (error) {
-                        console.error('Erreur lors du partage:', error);
+            // Gérer le partage
+            shareButton.addEventListener('click', async (e) => {
+                e.preventDefault();
+
+                try {
+                    // Convertir la photo base64 en File
+                    const photoFile = dataURLtoFile(photoData, 'mes_gourmandises.jpg');
+
+                    // Vérifier si l'API Web Share est disponible
+                    if (navigator.share && navigator.canShare && navigator.canShare({ files: [photoFile] })) {
+                        await navigator.share({
+                            files: [photoFile],
+                            title: 'Ma photo Tind\'Art',
+                            text: 'Découvre ma photo Tind\'Art !'
+                        });
+                    } else {
+                        // Fallback : télécharger l'image
                         const link = document.createElement('a');
                         link.href = photoData;
                         link.download = 'ma-photo-tindart.jpg';
                         link.click();
                     }
-                });
-            } else {
-                const noPhotoMessage = document.createElement('p');
-                noPhotoMessage.className = 'no-photo-message';
-                noPhotoMessage.textContent = 'Aucune photo disponible. Veuillez prendre une photo depuis la page précédente.';
-                photoDisplay.appendChild(noPhotoMessage);
-                shareButton.style.display = 'none';
-            }
-        });
-    </script>
+                } catch (error) {
+                    console.error('Erreur lors du partage:', error);
+                    // Fallback : télécharger l'image
+                    const link = document.createElement('a');
+                    link.href = photoData;
+                    link.download = 'ma-photo-tindart.jpg';
+                    link.click();
+                }
+            });
+        } else {
+            // Afficher un message si aucune photo n'est disponible
+            const noPhotoMessage = document.createElement('p');
+            noPhotoMessage.className = 'no-photo-message';
+            noPhotoMessage.textContent = 'Aucune photo disponible. Veuillez prendre une photo depuis la page précédente.';
+            photoDisplay.appendChild(noPhotoMessage);
+            shareButton.style.display = 'none';
+        }
+    });
+</script>
 </body>
 </html>
