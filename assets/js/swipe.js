@@ -61,7 +61,7 @@ const baseProfiles = [
         redflag1: "Érotomane",
         redflag2: "Peinture de nu",
         greenflag1: "Nymphomane",
-        greenflag2: "BDSM"
+        greenflag2: "Cultivé"
     },
     {
         id: 4,
