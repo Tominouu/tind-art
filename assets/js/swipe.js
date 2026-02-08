@@ -46,7 +46,7 @@ const baseProfiles = [
     },
     {
         id: 3,
-        name: "Bartolomé Esteban",
+        name: "Bartolomé Esteban Murillo",
         type: "Relation court terme",
         ville: "Séville",
         age: "408 ans",
@@ -62,10 +62,11 @@ const baseProfiles = [
         redflag2: "Peinture de nu",
         greenflag1: "Nymphomane",
         greenflag2: "Cultivé"
+
     },
     {
         id: 4,
-        name: "Trophime Bigot",
+        name: "le Maître à la chandelle",
         type: "Coup d'un soir",
         ville: "Arles",
         age: "446 ans",
